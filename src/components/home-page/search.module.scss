@@ -1,0 +1,36 @@
+.search_block {
+	background-color: #0098a7;
+}
+.search_block_content {
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	align-items: center;
+	padding: 1.3em 0;
+	font-size: 25px;
+	font-weight: 400;
+	text-transform: uppercase;
+	max-width: 1250px;
+	margin: 0 auto;
+}
+.search_input_label {
+	justify-self: start;
+	&:hover {
+		transition: .2s;
+		font-weight: 700;
+		transform: scale(1.02);
+	}
+}
+.search_input {
+	input {
+		width: 100%;
+		display: block;
+	}
+}
+.add_post_btn {
+	justify-self: end;
+	&:hover {
+		transition: .2s;
+		font-weight: 700;
+		transform: scale(1.02);
+	}
+}

@@ -1,0 +1,151 @@
+.escort_content_title {
+	background-color: #e477b1;
+	p {
+		max-width: 1260px;
+		margin: 0 auto;
+		font-size: 25px;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+}
+.filter_sort_control {
+	background-color: #4d515b;
+	color: #fff;
+	padding: .5em 0;
+}
+.filter_btn_wrap {
+	max-width: 1260px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.filter_btn_group {
+	span {
+		margin-right: 1em;
+		&:hover {
+			color: #e477b1;
+		}
+	}
+	span.active {
+		color: #e477b1;
+	}
+}
+.filter_btn_group:nth-child(1) {
+	justify-self: start;
+}
+.filter_btn_group:nth-child(2) {
+	justify-self: end;
+}
+
+// escort horizontal list
+
+.slide {
+	position: relative;
+	overflow: hidden;
+}
+.model_info {
+	padding: 1em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: calc(100% - 15px);
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.model_info_title {
+	h5 {
+		font-size: 21px;
+		font-weight: 700;
+	}
+	div {
+		color: #83c22b;
+		font-size: 17px;
+		font-weight: 400;
+	}
+}
+.signs_group {
+	display: grid;
+	grid-gap: 7%;
+	grid-auto-flow: column;
+	justify-content: end;
+}
+
+// vertical slider
+
+.vertical_slide {
+	display: grid;
+  grid-template-columns: 7fr 4fr;
+  margin-bottom: 1em;
+}
+.vertical_slide_image {
+}
+.vertical_slide_model_info {
+	background-color: #222222;
+	display: grid;
+	grid-template-columns: 6fr 1fr;
+}
+.name {
+	padding: 1em 0 0 1em;
+	margin: 0;
+}
+.network_status {
+	color: #83c22b;
+	padding: 0 0 .2em 1.2em;
+}
+.location {
+	font-size: 21px;
+	font-weight: 400;
+	padding: 0 0 1em 1em;
+}
+.summary {
+	font-size: 17px;
+	font-weight: 400;
+	padding: 0 0 0 1em;
+	line-height: 1.3em;
+	margin: 0;
+}
+.verification {
+	background-color: #000;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 2em;
+	grid-column: span 2;
+}
+.card_control {
+	justify-self: center;
+	div {
+		padding: 1em;
+	}
+}
+.verified {
+	position: relative;
+	background-color: #e477b1;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	padding: .1em 1em 0 2.5em;
+	height: calc(100% - 1px);
+	i {
+		display: inline-block;
+		position: absolute;
+		top: 0;
+    right: 0;
+    transform: translateX(95%);
+		border-left: 0px solid transparent;
+		border-right: 20px solid transparent;
+		border-top: 2em solid #e477b1;
+	}
+}
+.view_profile {
+	background-color: #0098a7;
+	font-size: 21px;
+	height: calc(100% + .5em);
+	margin: -.5em 1em 0 0;
+	font-weight: 400;
+	text-transform: uppercase;
+  padding: .3em 1.5em 0 1.5em;
+  &:hover {
+    transition: .2s;
+    background-color: #086972;
+  }
+}
