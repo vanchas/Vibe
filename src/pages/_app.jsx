@@ -1,7 +1,7 @@
 import App from 'next/app';
 import { Provider } from 'react-redux';
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import withRedux from "next-redux-wrapper";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../redux/store';

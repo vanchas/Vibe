@@ -1,0 +1,15 @@
+.loc_footer {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-gap: 1em;
+  padding: 1em 0;
+  div {
+    background-color: #e477b1;
+  }
+}
+.loc_foot_btn {
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
