@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Slider from "react-slick"
 import s from './escort.module.scss'
 import m1 from '../../assets/images/main/horizontal/model-1.png'
@@ -14,161 +15,76 @@ import crown from '../../assets/images/main/signs/crown-pink.png'
 
 export default function EscortList() {
   var settings = {
-    dots: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: 4,
     slidesToScroll: 4,
-    arrows: false,
-    dots: false
+    arrows: true,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    draggable: false,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
-    <Slider {...settings}
-      style={{
-        maxWidth: '1260px',
-        margin: '0 auto',
-        padding: '1.5em 0'
-      }}
-    >
-      <div className={s.slide}>
-        <img src={m1} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
+    <div style={{
+      maxWidth: '1260px',
+      padding: '1.5em 0 5em 0',
+      margin: '0 auto'
+    }}>
+      <Slider {...settings} >
+        {[m1, m2, m3, m4, m1, m2].map((m, i) => {
+          return <div key={i} className={s.slide}>
+            <Link href="/modelProfile"><a>
+              <img src={m} alt="model" className="mx-auto w-100" />
+              <div className={s.model_info}>
+                <div className={s.model_info_title}>
+                  <h5 className="text-white">Model Name</h5>
+                  <div>Online</div>
+                </div>
+                <div className={s.signs_group}>
+                  <div className={s.sign}>
+                    <img src={fav} alt="model" />
+                  </div>
+                  <div className={s.sign}>
+                    <img src={crown} alt="model" />
+                  </div>
+                  <div className={s.sign}>
+                    <img src={star} alt="model" />
+                  </div>
+                  <div className={s.sign}>
+                    <img src={plane} alt="model" />
+                  </div>
+                </div>
+              </div>
+            </a></Link>
           </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={fav} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.slide}>
-        <img src={m2} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
-          </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.slide}>
-        <img src={m3} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
-          </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.slide}>
-        <img src={m4} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
-          </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.slide}>
-        <img src={m1} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
-          </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={fav} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={s.slide}>
-        <img src={m2} alt="model" />
-        <div className={s.model_info}>
-          <div className={s.model_info_title}>
-            <h5 className="text-white">Model Name</h5>
-            <div>Online</div>
-          </div>
-          <div className={s.signs_group}>
-            <div className={s.sign}>
-              <img src={fav} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={crown} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={star} alt="" />
-            </div>
-            <div className={s.sign}>
-              <img src={plane} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Slider>
+        })}
+      </Slider>
+    </div>
   )
 }

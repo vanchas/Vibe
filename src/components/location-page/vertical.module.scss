@@ -1,0 +1,18 @@
+.loc_vert_carousel {
+}
+.loc_vert_carousel_header {
+	background-color: #0098a7;
+	margin: 1.5em 0;
+	h5 {
+		max-width: 1260px;
+		margin: 0 auto;
+		font-size: 25px;
+		font-weight: 400;
+		text-transform: uppercase;
+		padding: 0.1em 0 0.2em 0;
+		@media screen and (max-width: 768px) {
+			padding: 0.2em 1em;
+			text-align: center;
+		}
+	}
+}

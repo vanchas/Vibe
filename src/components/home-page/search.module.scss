@@ -11,11 +11,25 @@
 	text-transform: uppercase;
 	max-width: 1250px;
 	margin: 0 auto;
+	@media screen and (max-width: 1260px) {
+		padding: 1.3em 1em;
+	}
+	@media screen and (max-width: 700px) {
+		padding: 0.5em 0.5em;
+		grid-template-columns: 1fr;
+		div {
+			width: 100%;
+			text-align: center;
+		}
+		input {
+			margin: 0.5em 0;
+		}
+	}
 }
 .search_input_label {
 	justify-self: start;
 	&:hover {
-		transition: .2s;
+		transition: 0.2s;
 		font-weight: 700;
 		transform: scale(1.02);
 	}
@@ -29,7 +43,7 @@
 .add_post_btn {
 	justify-self: end;
 	&:hover {
-		transition: .2s;
+		transition: 0.2s;
 		font-weight: 700;
 		transform: scale(1.02);
 	}

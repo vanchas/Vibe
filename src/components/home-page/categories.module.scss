@@ -4,35 +4,58 @@
 .categories_title {
 	background-color: #e477b1;
 	p {
+		padding: 0.1em 0;
 		max-width: 1260px;
 		margin: 0 auto;
 		font-size: 25px;
 		font-weight: 400;
 		text-transform: uppercase;
 	}
+	@media screen and (max-width: 1260px) {
+		p {
+			padding: .1em 1em;
+		}
+	}
+	@media screen and (max-width: 768px) {
+		p {
+			text-align: center;
+			padding: .1em 1em;
+		}
+	}
 }
 .categories_content {
-	background: url('../../assets/images/categories/categories-bg.png') center center / cover no-repeat;
+	background: url("../../assets/images/categories/categories-bg.png") center
+		center / cover no-repeat;
 	padding: 2em 0;
 }
 .categories_control {
 	background-color: #36383e;
 	max-width: 1260px;
 	margin: 0 auto;
-	padding: .2em 1em;
+	padding: 0.2em 1em;
+	@media screen and (max-width: 700px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+		.category {
+			padding: .5em;
+		}
+	}
 	.category {
 		margin-right: 1em;
 		font-size: 21px;
 		font-weight: 400;
 		text-transform: uppercase;
 		color: #fff;
+		cursor: pointer;
 		&:hover {
-			transition: .2s;
-			color: #00e8ff;
+			transition: 0.2s;
+			color: #8ff3fc;
 		}
-	}
-	.category.active {
-		color: #00e8ff;
+		&:last-child {
+			grid-column: span 3;
+			text-align: center;
+		}
 	}
 }
 .categories_subtitle {
@@ -43,7 +66,30 @@
 	p {
 		font-size: 29px;
 		font-weight: 700;
-    text-transform: uppercase;
-    font-style: italic;
+		text-transform: uppercase;
+		font-style: italic;
+	}
+}
+
+.slide {
+	padding: 0 0.3em;
+	position: relative;
+	&:hover a {
+		color: #00e8ff;
+	}
+	a {
+		color: #fff;
+		text-decoration: none;
+		div {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 1em;
+			font-size: 25px;
+			font-weight: 400;
+			text-transform: uppercase;
+		}
 	}
 }

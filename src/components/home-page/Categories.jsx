@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './categories.module.scss'
+import $ from 'jquery'
 import CategoriesCarousel from './CategoriesCarousel'
 
 export default function Categories() {
+  const [filterCategory, setFilterCategory] = useState('escorts');
+
+  const activateBtn = e => {
+    setFilterCategory($(e.target).attr('name'));
+    for (let btn of $('.category_control_btn')) {
+      if ($(btn).not($(e.target)).hasClass('category_control_btn')) {
+        $(btn).removeClass('active_btn_blue');
+      }
+    }
+    $(e.target).addClass('active_btn_blue');
+  }
+
   return (
     <section className={s.categories_block}>
       <div className={`text-white ${s.categories_title}`}>
@@ -10,19 +23,33 @@ export default function Categories() {
       </div>
       <div className={s.categories_content}>
         <div className={`${s.categories_control}`}>
-          <span className={`${s.active} ${s.category}`}>
+          <span name="escorts"
+            onClick={e => activateBtn(e)}
+            className={`active_btn_blue category_control_btn ${s.category}`}>
             ESCORTS</span>
-          <span className={s.category}>
+          <span name="trans"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             TRANS</span>
-          <span className={s.category}>
+          <span name="bdsm"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             BDSM</span>
-          <span className={s.category}>
+          <span name="tantra"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             TANTRA</span>
-          <span className={s.category}>
+          <span name="massage"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             MASSAGE</span>
-          <span className={s.category}>
+          <span name="fetish"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             FETISH</span>
-          <span className={s.category}>
+          <span name="dancers"
+            onClick={e => activateBtn(e)}
+            className={`category_control_btn ${s.category}`}>
             DANCERS</span>
         </div>
         <div className={`text-white ${s.categories_subtitle}`}>

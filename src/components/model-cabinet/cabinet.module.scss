@@ -1,0 +1,83 @@
+.cab_control_name {
+	background-color: #36383e;
+	max-width: 1260px;
+	margin: 0 auto 1em auto;
+	padding: 0.5em 1em;
+	display: flex;
+	justify-content: space-between;
+	span {
+		color: #fff;
+		font-size: 21px;
+		font-weight: 400;
+		text-transform: uppercase;
+		cursor: pointer;
+		&:nth-child(1) {
+			color: #00e8ff;
+		}
+		&:hover {
+			transition: 0.2s;
+			color: #00e8ff;
+		}
+	}
+}
+.cab_control_title {
+	background-color: #e477b1;
+	width: 100%;
+	padding: 0.5em 0 0.6em 0;
+	h5 {
+		font-size: 25px;
+		font-weight: 400;
+		text-transform: uppercase;
+		max-width: 1260px;
+		margin: 0 auto;
+		@media screen and (max-width: 1260px) {
+			padding-left: 1em;
+		}
+		@media screen and (max-width: 768px) {
+			padding: 0 1em;
+			text-align: center;
+		}
+	}
+}
+.cab_control_buttons {
+	max-width: 1260px;
+	margin: 1em auto 0 auto;
+	padding: 0.4em 1em;
+	background-color: #36383e;
+	span {
+		padding-right: 1.5em;
+		text-transform: uppercase;
+		color: #fff;
+		font-size: 21px;
+		font-weight: 400;
+		cursor: pointer;
+		&:hover {
+			transition: 0.2s;
+			color: #00e8ff;
+		}
+	}
+	@media screen and (max-width: 1000px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    span {
+      padding: .5em;
+    }
+		span:last-child {
+      grid-column: span 3;
+      text-align: center;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    span {
+      padding: .5em;
+    }
+		span:last-child {
+      grid-column: span 2;
+      text-align: center;
+		}
+	}
+}

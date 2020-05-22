@@ -1,0 +1,29 @@
+.ads_block {
+	max-width: 1260px;
+  margin: 0 auto;
+  padding-bottom: 4em;
+}
+.ads_filter_control {
+  margin-bottom: 2em;
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  grid-gap: 1em;
+	div {
+    color: #fff;
+		background-color: #797a7d;
+		font-size: 25px;
+		font-weight: 400;
+    text-transform: uppercase;
+    padding: .1em 1em;
+    &:nth-child(1):hover,
+    &:nth-child(2):hover {
+      background-color: #57585a;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    div:last-child {
+      display: none;
+    }
+  }
+}
