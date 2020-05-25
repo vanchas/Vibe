@@ -2,6 +2,7 @@
 }
 .loc_vert_carousel_header {
 	background-color: #0098a7;
+	font-family: 'Audiowide', cursive;
 	margin: 2.5em 0 1.5em 0;
 	h5 {
 		max-width: 1260px;
@@ -10,6 +11,9 @@
 		font-weight: 400;
 		text-transform: uppercase;
 		padding: 0.1em 0 0.2em 0;
+		@media screen and (max-width:1260px) {
+			padding: .2em 1em;
+		}
 		@media screen and (max-width: 768px) {
 			padding: 0.5em 1em;
 			text-align: center;

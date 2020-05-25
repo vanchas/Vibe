@@ -1,5 +1,6 @@
 .escort_content_title {
 	background-color: #e477b1;
+	font-family: 'Audiowide', cursive;
 	p {
 		padding: 0.1em 0;
 		max-width: 1260px;
@@ -20,6 +21,7 @@
 	background-color: #4d515b;
 	color: #fff;
 	padding: 0.4em 0 0.2em 0;
+	font-family: 'Audiowide', cursive;
 	@media screen and (max-width: 768px) {
 		padding: 0.6em 0.5em 0.3em 0.5em;
 	}
@@ -153,6 +155,7 @@
 	}
 }
 .verified {
+	font-family: 'Audiowide', cursive;
 	position: relative;
 	background-color: #e477b1;
 	font-size: 16px;
@@ -175,6 +178,7 @@
 	}
 }
 .view_profile {
+	font-family: 'Audiowide', cursive;
 	background-color: #0098a7;
 	font-size: 21px;
 	height: calc(100% + 0.5em);

@@ -29,6 +29,7 @@
 }
 .search_input_label {
 	justify-self: start;
+	font-family: 'Audiowide', cursive;
 	&:nth-child(2):hover {
 		transition: 0.2s;
 		font-weight: 700;
@@ -42,6 +43,7 @@
 	}
 }
 .add_post_btn {
+	font-family: 'Audiowide', cursive;
 	justify-self: end;
 	&:hover {
 		transition: 0.2s;

@@ -169,7 +169,7 @@ export default class AddPostFrom extends Component {
               <textarea rows="10" className="form-control bg-light text-white" />
               </label>
               <div>
-                <button className={`btn text-white ${s.save_btn}`}>SAVE</button>
+                <button className={`text-white ${s.save_btn}`}>SAVE</button>
               </div>
             </form>
           </div>

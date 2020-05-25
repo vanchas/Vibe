@@ -7,8 +7,12 @@
 }
 .customize_block {
 }
+.user_edit_control {
+	font-family: 'Audiowide', cursive;
+}
 .customize_block_title {
 	background-color: #0098a7;
+	font-family: 'Audiowide', cursive;
 	font-size: 25px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -48,6 +52,7 @@
 	font-weight: 400;
 	text-transform: uppercase;
 	background-color: #0098a7;
+	font-family: 'Audiowide', cursive;
 	padding: 0.2em 3em;
 	border: 1px solid #181818;
 	&:hover {

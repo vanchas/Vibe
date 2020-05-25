@@ -5,6 +5,7 @@
 	grid-template-columns: 3fr 3fr 2fr;
 	grid-gap: 1em;
 	div {
+		font-family: 'Audiowide', cursive;
 		cursor: pointer;
 		padding: 0.2em 1em;
 		background-color: #797a7d;
@@ -62,6 +63,7 @@
 	position: absolute;
 	right: 0;
 	bottom: 1em;
+	font-family: 'Audiowide', cursive;
 	background-color: #0098a7;
 	padding: 0 0.8em;
 	display: flex;

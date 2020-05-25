@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 body {
 	background-color: #fff;
 }
 
 .navbar {
 	margin-top: -1em;
-	overflow: visible;	
+	overflow: visible;
 	.navbar-toggler {
 		position: absolute;
-		right: .5em;
+		right: 0.5em;
 		top: 1.5em;
 		z-index: 9;
 		background-color: rgba(228, 119, 177, 0.5);
@@ -94,4 +96,11 @@ body {
 .slick-dots li.slick-active button:before {
 	opacity: 1 !important;
 	color: #d8a462 !important;
+}
+
+@font-face {
+	font-family: "Pricedown";
+	src: url("../../assets/fonts/Pricedown.ttf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
 }

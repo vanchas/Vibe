@@ -26,6 +26,7 @@
 	}
 	span {
 		a {
+			font-family: 'Audiowide', cursive;
 			display: block;
 			text-align: center;
 			padding: 0.2em 1em;
@@ -42,6 +43,7 @@
 	display: grid;
 	grid-template-rows: 2.8em auto;
 	div {
+		font-family: 'Audiowide', cursive;
 		padding: 0.2em 1em;
 		background-color: #0098a7;
 		color: #ffffff;
@@ -74,6 +76,7 @@
 	grid-gap: 2em;
 }
 .transaction_heading {
+	font-family: 'Audiowide', cursive;
 	background-color: #0098a7;
 	width: 100%;
 
@@ -115,6 +118,9 @@
 	}
 	.t_date {
 		white-space: nowrap;
+	}
+	.transaction_title {
+		font-family: 'Audiowide', cursive;
 	}
 	@media screen and (max-width: 900px) {
 		&:nth-child(even) {

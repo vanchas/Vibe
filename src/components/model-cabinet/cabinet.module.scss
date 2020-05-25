@@ -11,6 +11,7 @@
 		font-weight: 400;
 		text-transform: uppercase;
 		cursor: pointer;
+		font-family: 'Audiowide', cursive;
 		&:nth-child(1) {
 			color: #00e8ff;
 		}
@@ -22,6 +23,7 @@
 }
 .cab_control_title {
 	background-color: #e477b1;
+	font-family: 'Audiowide', cursive;
 	width: 100%;
 	padding: 0.5em 0 0.6em 0;
 	h5 {
@@ -46,6 +48,7 @@
 	padding: 0.4em 1em;
 	background-color: #36383e;
 	span {
+		font-family: 'Audiowide', cursive;
 		padding-right: 1.5em;
 		text-transform: uppercase;
 		color: #fff;
