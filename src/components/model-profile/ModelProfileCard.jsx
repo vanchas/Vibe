@@ -19,7 +19,7 @@ export default function ModelProfileCard() {
             <ProfileVideo />
           </div>
           <div className={`${s.report_btn} text-white`}>
-            Report Fake Photos &nbsp;&nbsp; Report Trafficking
+            <span> Report Fake Photos </span> <span> Report Trafficking </span>
           </div>
           <div className={`${s.favorite_btn} text-white`}>
             Add to favourites

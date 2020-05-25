@@ -11,7 +11,8 @@ export default function LocPageControl() {
         </div>
         <div className={`${s.loc_page_filter_control}`}>
           <div>FILTER</div>
-          <input type="text" className="form-control text-white" />
+          <input type="text" placeholder="filter"
+            className="form-control text-white" />
         </div>
       </div>
     </div>

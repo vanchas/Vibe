@@ -4,7 +4,7 @@ import s from './prices.module.scss'
 
 export default function Prices() {
   var settings = {
-    infinite: false,
+    infinite: true,
     speed: 1500,
     slidesToShow: 4,
     slidesToScroll: 4,
@@ -12,13 +12,20 @@ export default function Prices() {
     dots: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    draggable: false,
+    draggable: true,
+    // pauseOnFocus: true,
+    // pauseOnHover: true,
+    swipeToSlide: true,
+    swipe: true,
+    touchMove: true,
+    initialSlide: 2,
     responsive: [
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3
+          slidesToScroll: 3,
+          autoplay: false
         }
       },
       {
@@ -26,14 +33,15 @@ export default function Prices() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          autoplay: false
         }
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          autoplay: false
         }
       }
     ]

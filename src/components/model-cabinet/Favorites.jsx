@@ -53,7 +53,7 @@ export default function Favorites() {
           margin: "0 auto",
         }}
       >
-        {[m1, m2, m3, m4, m1, m2].map((m, i) => (
+        {[m1, m2, m3, m4, m1, m2, m1, m2, m3, m4, m1, m2].map((m, i) => (
           <div key={i}>
             <div className={s.slide}>
               <div>

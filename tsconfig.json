@@ -29,6 +29,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "src/pages/index.jsx"
+    "**/*.tsx", "src/pages/index.jsx", "src/redux/actions/types.js", "src/redux/actions/actions.js"
   ]
 }

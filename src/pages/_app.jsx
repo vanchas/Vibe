@@ -6,6 +6,7 @@ import Layout from '../components/layout/Layout';
 import withRedux from "next-redux-wrapper";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../redux/store';
+import { configureFakeBackend } from '../_helpers';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,6 +17,10 @@ class CustomApp extends App {
     return {
       pageProps: pageProps
     };
+  }
+
+  componentDidMount() {
+    configureFakeBackend();
   }
 
   render() {

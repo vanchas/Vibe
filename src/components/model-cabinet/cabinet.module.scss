@@ -34,8 +34,9 @@
 			padding-left: 1em;
 		}
 		@media screen and (max-width: 768px) {
-			padding: 0 1em;
+			padding: .2em 1em;
 			text-align: center;
+			font-size: 20px;
 		}
 	}
 }
@@ -61,7 +62,8 @@
 		grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     span {
-      padding: .5em;
+			padding: .5em;
+			font-size: 20px;
     }
 		span:last-child {
       grid-column: span 3;

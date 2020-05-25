@@ -2,6 +2,9 @@
 	margin: 2em 0;
 	background-color: #e477b1;
 	padding: 0.2em 0;
+	@media screen and (max-width: 768px) {
+		padding: .5em 0;
+	}
 }
 .profile_control_buttons {
 	max-width: 1260px;
@@ -10,9 +13,6 @@
 	grid-auto-flow: column;
 	justify-content: space-between;
 	align-items: center;
-	@media screen and (max-width: 1260px) {
-		padding: 0 1em;
-	}
 	div {
 		display: grid;
 		grid-auto-flow: column;
@@ -21,6 +21,12 @@
 			font-size: 25px;
 			font-weight: 400;
 			text-transform: uppercase;
+		}
+	}
+	@media screen and (max-width: 1260px) {
+		padding: 0 1em;
+		div span {
+			font-size: 20px;
 		}
 	}
 }
@@ -51,6 +57,12 @@
 		text-align: center;
 	}
 }
+.slick-slider {
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+}
 .image_block {
 	max-width: 100%;
 	@media screen and (max-width: 1260px) {
@@ -61,7 +73,7 @@
     max-width: 100%;
     img {
       width: 100%;
-    }
+		}
     @media screen and (max-width: 1260px) {
       height: auto;
       // display: grid;
@@ -72,9 +84,14 @@
 		margin-top: 1em;
 		font-size: 17px;
 		font-weight: 700;
-		padding: 1em 0;
+		padding: 1em;
 		text-align: center;
 		background-color: #0098a7;
+		display: flex;
+		justify-content: space-around;
+		@media screen and (max-width: 400px) {
+      display: grid;
+    }
 
 		cursor: pointer;
 		&:hover {
@@ -134,11 +151,9 @@
 	font-size: 17px;
 	h6 {
 		margin: 1em 0 0 0.1em;
-		font-family: "Montserrat - Bold";
 		font-weight: 700;
 	}
 	p {
-		font-family: "Montserrat - Regular";
 		font-weight: 400;
 		line-height: 1.5em;
 	}
@@ -151,7 +166,8 @@
 	justify-content: space-between;
 	@media screen and (max-width: 520px) {
     display: grid;
-    justify-content: center;
+		justify-content: center;
+		margin-top: 2em;
 	}
 	div {
 		font-size: 17px;
@@ -228,6 +244,10 @@
 		font-size: 25px;
 		font-weight: 400;
 		text-transform: uppercase;
+		@media screen and (max-width: 520px) {
+			padding: .2em .5em;
+			font-size: 20px;
+		}
 	}
 	textarea {
 		display: block;
@@ -253,6 +273,10 @@
 	font-weight: 400;
 	text-transform: uppercase;
 	margin-bottom: 1em;
+	@media screen and (max-width: 520px) {
+		padding: .2em .5em;
+		font-size: 20px;
+	}
 }
 .comment {
 	color: #eee;

@@ -100,12 +100,14 @@
 			.t_price,
 			.t_date {
 				background-color: #e477b1;
+				padding: .4em 0;
 			}
 		}
 		&:nth-child(odd) {
 			.t_price,
 			.t_date {
 				background-color: #d8a462;
+				padding: .4em 0;
 			}
 		}
 		grid-template-columns: auto auto auto;

@@ -10,7 +10,7 @@
 	}
 	@media screen and (max-width: 768px) {
 		p {
-			padding: 0.1em 1em;
+			padding: 0.5em 1em;
 			text-align: center;
 		}
 	}
@@ -39,6 +39,12 @@
 		}
 		&:hover {
 			color: #e477b1;
+		}
+	}
+	@media screen and (max-width: 375px) {
+		display: grid;
+		span {
+			padding: 0.2em 1em 0.4em 1em;
 		}
 	}
 }
@@ -122,7 +128,7 @@
 	font-weight: 400;
 	padding: 0 0 0 1em;
 	line-height: 1.3em;
-	margin: 0;
+	margin-bottom: 1.5em;
 }
 .verification {
 	background-color: #000;

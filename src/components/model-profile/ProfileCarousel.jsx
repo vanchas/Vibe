@@ -15,7 +15,7 @@ export default function ProfileCarousel() {
   };
 
   return (
-    <div className="w-100">
+    <div className="w-100" style={{background: '#1b1c1f'}}>
       <Slider
         {...settings}
         style={{

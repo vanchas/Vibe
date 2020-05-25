@@ -19,7 +19,8 @@
 	@media screen and (max-width: 768px) {
 		p {
 			text-align: center;
-			padding: .1em 1em;
+			padding: .5em 1em;
+			font-size: 20px;
 		}
 	}
 }
@@ -33,14 +34,6 @@
 	max-width: 1260px;
 	margin: 0 auto;
 	padding: 0.2em 1em;
-	@media screen and (max-width: 700px) {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		justify-items: center;
-		.category {
-			padding: .5em;
-		}
-	}
 	.category {
 		margin-right: 1em;
 		font-size: 21px;
@@ -55,6 +48,16 @@
 		&:last-child {
 			grid-column: span 3;
 			text-align: center;
+		}
+	}
+	@media screen and (max-width: 700px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+		.category {
+			padding: .5em 0;
+			margin: 0;
+			font-size: 20px;
 		}
 	}
 }

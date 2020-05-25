@@ -10,7 +10,7 @@ export default function ProfilesControl() {
           <span>NEXT</span>
         </div>
         <div>
-          <span> CLOSE X</span>
+          <span> CLOSE</span>
         </div>
       </div>
     </div>

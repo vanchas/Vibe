@@ -31,7 +31,6 @@
 			transform: translateX(calc(-100% + 2px));
 		}
 		@media screen and (max-width: 1260px) {
-			// text-align: center;
 			&::before {
 				display: none;
 			}
@@ -69,7 +68,8 @@
 		margin-bottom: 1em;
 		h5, div {
 			text-align: center;
-			padding: .2em 1em .3em 1em;
+			padding: .5em 1em .5em 1em;
+			font-size: 20px;
 		}
 	}
 }
@@ -77,9 +77,6 @@
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 	grid-gap: 1em;
-	@media screen and (max-width: 768px) {
-		margin-bottom: 1em;
-	}
 	div {
 		background-color: #797a7d;
 		display: flex;
@@ -92,10 +89,21 @@
 	}
 	input {
 		font-size: 1.3em;
+		&::placeholder {
+			color: #ccc;
+		}
 		&:hover {
 			transition: 0.1s;
 			background-color: #9a9b9e;
 		}
 		background-color: #797a7d;
+	}
+	@media screen and (max-width: 768px) {
+		margin-bottom: 1em;
+		grid-template-columns: 1fr;
+		padding: 0 .5em;
+		div {
+			display: none;
+		}
 	}
 }
