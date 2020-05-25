@@ -12,18 +12,18 @@ body {
 .slick-prev {
 	z-index: 99 !important;
 	position: absolute !important;
-	top: 0 !important;
+	top: 35% !important;
 	left: 0 !important;
 	background-color: none !important;
 	display: inline-block !important;
-	height: 100% !important;
+	height: 30% !important;
 	width: 70px !important;
 	transform: translate(0, 0) !important;
 	padding: 0 1em !important;
-	&:hover {
-		transition: 0.2s;
-		background-color: rgba(0, 0, 0, 0.5) !important;
-	}
+	// &:hover {
+	// 	transition: 0.2s;
+	// 	background-color: rgba(0, 0, 0, 0.5) !important;
+	// }
 	&::before {
 		content: "\2039" !important;
 		font-family: auto !important;
@@ -34,18 +34,18 @@ body {
 .slick-next {
 	z-index: 99 !important;
 	position: absolute !important;
-	top: 0 !important;
+	top: 35% !important;
 	right: 0 !important;
 	background-color: none !important;
 	display: inline-block !important;
-	height: 100% !important;
+	height: 30% !important;
 	width: 70px !important;
 	transform: translate(0, 0) !important;
 	padding: 0 1em !important;
-	&:hover {
-		transition: 0.2s;
-		background-color: rgba(0, 0, 0, 0.5) !important;
-	}
+	// &:hover {
+	// 	transition: 0.2s;
+	// 	background-color: rgba(0, 0, 0, 0.5) !important;
+	// }
 	&::before {
 		content: "\203A" !important;
 		font-family: auto !important;

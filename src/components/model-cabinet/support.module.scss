@@ -16,6 +16,30 @@
 		font-size: 20px;
 	}
 }
+.text_of_support_message {
+  white-space: nowrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text_of_support_message.show {
+  white-space: normal; 
+  overflow: visible;
+  width: 100%; 
+}
+// .text_of_support_message {
+// 	width: 100%;
+// 	text-overflow: ellipsis;
+// 	white-space: nowrap;
+// 	overflow: hidden;
+// }
+// .text-of-support-message.show {
+// 	width: auto;
+// 	text-overflow: ellipsis;
+// 	white-space: normal;
+// 	overflow: visible;
+// }
 .task_body {
 	background-color: #36383e;
 	padding: 1.5em;
@@ -39,6 +63,11 @@
 		font-size: 21px;
 		font-weight: 400;
 		text-transform: uppercase;
+	}
+	&:hover {
+		span {
+			background-color: #017580;
+		}
 	}
 }
 
@@ -84,7 +113,7 @@
 			}
 		}
 		@media screen and (max-width: 768px) {
-			padding: 1.5em .5em;
+			padding: 1.5em 0.5em;
 		}
 	}
 }

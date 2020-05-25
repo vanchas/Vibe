@@ -2,10 +2,12 @@ import React from "react";
 import s from "./header.module.scss";
 import Link from 'next/link';
 import HeaderBg from "../../assets/images/header/header.png";
+import NavComponent from "./Nav";
 
 export default function Header() {
   return (
-    <header>
+    <div className={s.header}>
+      <NavComponent />
       <div className={s.header_image_block}>
         <img src={HeaderBg} alt="Vibe City" className="w-100" />
         <h1 className={`${s.header_title} text-white`}>
@@ -20,6 +22,6 @@ export default function Header() {
           src: url("/src/assets/fonts/progress.otf");
         }
       `}</style>
-    </header>
+    </div>
   );
 }

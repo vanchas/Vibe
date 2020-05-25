@@ -12,7 +12,7 @@ import plane from "../../assets/images/main/signs/plane-yel.png";
 export default function LocHorCarousel() {
   var settings = {
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 2,
     slidesToScroll: 2,
     arrows: true,
@@ -47,7 +47,7 @@ export default function LocHorCarousel() {
               <div className={s.loc_hor_carousel_slide}>
                 <img src={m} alt="model" className="w-100" />
                 <div className={s.loc_slide_info}>
-                  <div>
+                  <div className={s.loc_slide_info_head}>
                     <h5 className="text-white">Model Name</h5>
                     <div className={s.slide_network}>Online</div>
                     <div className={s.slide_control}>

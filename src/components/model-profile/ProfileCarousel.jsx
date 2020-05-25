@@ -12,6 +12,7 @@ export default function ProfileCarousel() {
     slidesToScroll: 1,
     arrows: true,
     dots: false,
+    fade: true
   };
 
   return (

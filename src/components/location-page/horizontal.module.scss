@@ -38,15 +38,16 @@
 	@media screen and (max-width: 400px) {
 		background: none;
     grid-template-columns: 1fr;
-    // div:first-child {
-    //   grid-column: span 2;
-    // }
-		// .slide_verification {
-		// 	grid-column: span 2;
-		// 	justify-items: end;
-    // }
-    text-shadow: 0 0 3px #1b1b1b;
+		text-shadow: 0 0 3px #1b1b1b;
+		.loc_slide_info_head {
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+		// .slide_location {
+		// 	justify-self: center;
+		// }
     .slide_control {
+			justify-self: center;
       padding-bottom: .5em;
     }
 		.status,

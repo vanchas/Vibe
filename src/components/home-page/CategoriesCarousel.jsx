@@ -16,7 +16,7 @@ export default function SimpleSlider(props) {
 
   var settings = {
     infinite: true,
-    speed: 800,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
@@ -44,7 +44,8 @@ export default function SimpleSlider(props) {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          fade: true
         }
       }
     ]

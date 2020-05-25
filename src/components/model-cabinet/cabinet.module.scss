@@ -62,7 +62,7 @@
 		grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     span {
-			padding: .5em;
+			padding: .5em 0;
 			font-size: 20px;
     }
 		span:last-child {
@@ -75,7 +75,7 @@
 		grid-template-columns: 1fr 1fr;
     justify-items: center;
     span {
-      padding: .5em;
+      padding: .5em 0;
     }
 		span:last-child {
       grid-column: span 2;

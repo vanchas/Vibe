@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import s from './balance.module.scss'
 
 export default function Balance() {
@@ -7,7 +8,7 @@ export default function Balance() {
       <div className={s.balance_info_block}>
         <div className={s.small_info_block}>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendis</p>
-          <span>Fill the balance</span>
+          <span><Link href="/balance"><a>Fill the balance</a></Link></span>
         </div>
         <div className={s.big_info_block}>
           <div>INFO</div>

@@ -10,7 +10,7 @@ import m4 from "../../assets/images/main/model-cabinet/model-4.png";
 export default function Favorites() {
   var settings = {
     infinite: true,
-    speed: 1500,
+    speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
