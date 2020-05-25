@@ -2,6 +2,21 @@ body {
 	background-color: #fff;
 }
 
+.navbar {
+	margin-top: -1em;
+	overflow: visible;	
+	.navbar-toggler {
+		position: absolute;
+		right: .5em;
+		top: 1.5em;
+		z-index: 9;
+		background-color: rgba(228, 119, 177, 0.5);
+	}
+	.navbar-collapse {
+		padding-top: 1em;
+	}
+}
+
 .active_btn_blue {
 	color: #00e8ff !important;
 }
