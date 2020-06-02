@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
-import {reducer} from './reducer';
+import { testReducer } from './testReducer';
+import { appReducer } from './appReducer';
+import { providerReducer } from './providerReducer';
+import { userReducer } from './userReducer';
 
 const rootReducer = combineReducers({
-    reducer
+    testPosts: testReducer,
+    app: appReducer,
+    provider: providerReducer,
+    user: userReducer
 });
 
 export default rootReducer;

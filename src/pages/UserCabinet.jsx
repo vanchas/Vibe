@@ -1,12 +1,12 @@
 import React from 'react'
-import UserProfileEdit from '../components/user-profile/UserProfileEdit'
-import EditUserProfileControl from '../components/user-profile/EditUserProfileControl'
+import UserCabinetEdit from '../components/user-cabinet/UserCabinetEdit'
+import UserCabinetControl from '../components/user-cabinet/UserCabinetControl'
 
 export default function UserCabinet() {
   return (
     <div>
-      <EditUserProfileControl />
-      <UserProfileEdit />
+      <UserCabinetControl />
+      <UserCabinetEdit />
     </div>
   )
 }

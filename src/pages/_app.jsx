@@ -11,6 +11,7 @@ import { configureFakeBackend } from '../_helpers';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 class CustomApp extends App {
   static async getInitialProps(props) {
     const pageProps = props.Component.getInitialProps ? await props.Component.getInitialProps(props.ctx) : {};
@@ -41,3 +42,5 @@ const makeStore = () => store;
 
 //withRedux wrapper that passes the store to the App Component
 export default withRedux(makeStore)(CustomApp);
+
+

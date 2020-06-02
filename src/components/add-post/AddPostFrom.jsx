@@ -21,7 +21,7 @@ export default class AddPostFrom extends Component {
       availability: '',
       summary: '',
       about: ''
-     }
+    }
   }
 
   render() {
@@ -45,13 +45,13 @@ export default class AddPostFrom extends Component {
               </label>
               <div className="d-lg-flex d-md-block">
                 <legend>Sex:</legend>
-                <label className="form-group" name="sex" >
+                <label className="form-check" >
                   Male
-              <input type="radio" value="male" className="form-control bg-light" />
+                  <input type="radio" value="male" name="sex" className="form-check-input bg-light" />
                 </label>
-                <label className="form-group">
+                <label className="form-check">
                   Female
-              <input type="radio" value="female" className="form-control bg-light" name="sex" />
+                  <input type="radio" value="female" className="form-check-input bg-light" name="sex" />
                 </label>
               </div>
               <label className="form-group">
@@ -139,17 +139,17 @@ export default class AddPostFrom extends Component {
               </label>
               <div className="d-lg-flex d-md-block">
                 <legend> Available To:</legend>
-                <label className="form-group">
+                <label className="form-check">
                   Men
-                <input type="checkbox" className="form-control" />
+                <input type="checkbox" className="form-check-input" />
                 </label>
-                <label className="form-group">
+                <label className="form-check">
                   Wemen
-                <input type="checkbox" className="form-control" />
+                <input type="checkbox" className="form-check-input" />
                 </label>
-                <label className="form-group">
+                <label className="form-check">
                   Couples
-                <input type="checkbox" className="form-control" />
+                <input type="checkbox" className="form-check-input" />
                 </label>
               </div>
               <label className="form-group">
@@ -168,6 +168,11 @@ export default class AddPostFrom extends Component {
                 About:
               <textarea rows="10" className="form-control bg-light text-white" />
               </label>
+              <div className="form-group">
+                <label>Upload photo
+                  <input type="file" classN="form-control-file" />
+                </label>
+              </div>
               <div>
                 <button className={`text-white ${s.save_btn}`}>SAVE</button>
               </div>

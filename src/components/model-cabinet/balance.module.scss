@@ -116,10 +116,15 @@
 	&:nth-child(odd) .transaction_title {
 		background-color: #d8a462;
 	}
+	.t_price {
+		white-space: nowrap;
+	}
 	.t_date {
+		white-space: nowrap;
 		white-space: nowrap;
 	}
 	.transaction_title {
+		white-space: nowrap;
 		font-family: 'Audiowide', cursive;
 	}
 	@media screen and (max-width: 900px) {

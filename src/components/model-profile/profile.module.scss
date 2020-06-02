@@ -1,6 +1,7 @@
 .profile_control {
 	margin: 2em 0;
 	background-color: #e477b1;
+	font-family: 'Audiowide', cursive;
 	padding: 0.2em 0;
 	@media screen and (max-width: 768px) {
 		padding: .5em 0;
@@ -18,6 +19,7 @@
 		grid-auto-flow: column;
 		grid-gap: 2em;
 		span {
+			font-family: 'Audiowide', cursive;
 			font-size: 25px;
 			font-weight: 400;
 			text-transform: uppercase;
@@ -173,8 +175,9 @@
 		font-size: 17px;
 		font-weight: 400;
 		text-transform: uppercase;
-
+		font-family: 'Audiowide', cursive;
 		a {
+			font-family: sans-serif;
 			cursor: pointer;
 			text-transform: none;
 			color: #fff;
@@ -234,6 +237,7 @@
 }
 
 .add_comment_block {
+	font-family: 'Audiowide', cursive;
 	background-color: #e477b1;
 	width: 100%;
 	max-width: 1260px;
@@ -267,6 +271,7 @@
 }
 .comments_block_title {
 	background-color: #e477b1;
+	font-family: 'Audiowide', cursive;
 	width: 100%;
 	padding: 0.5em;
 	font-size: 25px;

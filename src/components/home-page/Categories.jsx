@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 import s from './categories.module.scss'
-import $ from 'jquery'
+// import $ from 'jquery'
 import CategoriesCarousel from './CategoriesCarousel'
 
 export default function Categories() {
   const [filterCategory, setFilterCategory] = useState('escorts');
 
-  const activateBtn = e => {
-    setFilterCategory($(e.target).attr('name'));
-    for (let btn of $('.category_control_btn')) {
-      if ($(btn).not($(e.target)).hasClass('category_control_btn')) {
-        $(btn).removeClass('active_btn_blue');
-      }
-    }
-    $(e.target).addClass('active_btn_blue');
+  const changeCategory = category => {
+    setFilterCategory(category);
   }
 
   return (
@@ -23,33 +17,33 @@ export default function Categories() {
       </div>
       <div className={s.categories_content}>
         <div className={`${s.categories_control}`}>
-          <span name="escorts"
-            onClick={e => activateBtn(e)}
-            className={`active_btn_blue category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("escorts")}
+            className={`${s.category} ${filterCategory === 'escorts' ? 'active_btn_blue' : ''}`}>
             ESCORTS</span>
-          <span name="trans"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("trans")}
+            className={`${s.category} ${filterCategory === 'trans' ? 'active_btn_blue' : ''}`}>
             TRANS</span>
-          <span name="bdsm"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("bdsm")}
+            className={`${s.category} ${filterCategory === 'bdsm' ? 'active_btn_blue' : ''}`}>
             BDSM</span>
-          <span name="tantra"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("tantra")}
+            className={`${s.category} ${filterCategory === 'tantra' ? 'active_btn_blue' : ''}`}>
             TANTRA</span>
-          <span name="massage"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("massage")}
+            className={`${s.category} ${filterCategory === 'massage' ? 'active_btn_blue' : ''}`}>
             MASSAGE</span>
-          <span name="fetish"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("fetish")}
+            className={`${s.category} ${filterCategory === 'fetish' ? 'active_btn_blue' : ''}`}>
             FETISH</span>
-          <span name="dancers"
-            onClick={e => activateBtn(e)}
-            className={`category_control_btn ${s.category}`}>
+          <span
+            onClick={e => changeCategory("dancers")}
+            className={`${s.category} ${filterCategory === 'dancers' ? 'active_btn_blue' : ''}`}>
             DANCERS</span>
         </div>
         <div className={`text-white ${s.categories_subtitle}`}>

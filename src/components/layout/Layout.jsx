@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
 import Header from '../header/Header';
 import s from './layout.module.scss';
+import { connect } from 'react-redux';
 
 const Layout = ({ children }) => (
   <div className={s.layout}>
@@ -15,12 +15,4 @@ const Layout = ({ children }) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({
-  // counter: state.counter.value
-});
-
-const mapDispatchToProps = {
-  // decrementCounter
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Layout;

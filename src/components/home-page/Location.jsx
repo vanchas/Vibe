@@ -57,18 +57,14 @@ export default function Location() {
     "Wisconsin",
     "Wyoming",
   ]);
+  const [currentLocation, setCurrentLocation] = useState('');
   const router = useRouter();
 
-  const changeLocation = e => {
-    for (let btn of $('.location_item')) {
-      if ($(btn).not($(e.target)).hasClass('active_btn_blue')) {
-        $(btn).removeClass('active_btn_blue');
-      }
-    }
-    $(e.target).addClass('active_btn_blue');
-    if (e.target.value) {
-      router.push('/location');
-    }
+  const changeLocation = location => {
+    setCurrentLocation(location);
+    // if (loc) {
+    router.push('/location');
+    // }
   }
 
   return (
@@ -78,8 +74,8 @@ export default function Location() {
       </div>
       <div className={s.location_block_select}>
         <select className="form-control"
-          onChange={e => changeLocation(e)} >
-            <option value="default" hidden>Location</option>
+          onChange={e => changeLocation(e.target.value)} >
+          <option value="default" hidden>Location</option>
           {locations.map((loc, i) => (
             <option key={i} value={loc}>{loc}</option>
           ))}
@@ -90,10 +86,10 @@ export default function Location() {
           {locations.map((loc, i) => {
             return (
               <li key={i}
-                onClick={e => changeLocation(e)}
-                className="btn text-white location_item">
+                onClick={e => changeLocation(loc)}
+                className={`btn text-white location_item`}>
                 <Link href="/location">
-                  <a>{loc}</a>
+                  <a className={currentLocation === loc ? 'active_btn_blue' : ''}>{loc}</a>
                 </Link>
               </li>
             );

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import s from './profile-edit.module.scss'
+import s from './user-edit.module.scss'
 
 
-export default function UserProfileEdit() {
+export default function UserCabinetEdit() {
   const [accountEditMode, setAccountEditMode] = useState(false);
   const [addressEditMode, setAddressEditMode] = useState(false);
   const [documentsEditMode, setDocumentsEditMode] = useState(false);

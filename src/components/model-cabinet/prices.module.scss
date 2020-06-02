@@ -58,13 +58,14 @@
 	display: grid;
 	justify-items: center;
 	margin-bottom: 3em;
+	white-space: nowrap;
 	.price_title {
 		font-size: 42px;
 		font-weight: 400;
 		text-transform: uppercase;
 	}
 	.price {
-		font-size: 125px;
+		font-size: 100px;
 		font-weight: 400;
 		i {
 			display: inline-block;

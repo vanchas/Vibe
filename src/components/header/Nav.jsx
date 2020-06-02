@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import s from './header.module.scss';
 import PropTypes from 'prop-types';
 import {
   Collapse,
@@ -30,6 +31,9 @@ const NavComponent = props => {
             </NavItem>
             <NavItem>
               <NavLink href="/addPost" onClick={() => setActiveLink('add post')} className={activeLink === 'add post' ? s.activeLink : null}>Add Post</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/test" onClick={() => setActiveLink('test')} className={activeLink === 'test' ? s.activeLink : null}>TEST</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
