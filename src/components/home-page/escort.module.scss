@@ -1,6 +1,6 @@
 .escort_content_title {
 	background-color: #e477b1;
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	p {
 		padding: 0.1em 0;
 		max-width: 1260px;
@@ -21,7 +21,13 @@
 	background-color: #4d515b;
 	color: #fff;
 	padding: 0.4em 0 0.2em 0;
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
+	select:focus {
+		font-family: 'Montserrat', sans-serif;
+		color: #fff !important;
+		font-weight: 600;
+		background-color: #4d515b;
+	}
 	@media screen and (max-width: 768px) {
 		padding: 0.6em 0.5em 0.3em 0.5em;
 	}
@@ -33,6 +39,8 @@
 	grid-template-columns: 1fr 1fr;
 }
 .filter_btn_group {
+	display: flex;
+	align-items: center;
 	.sorting_btn {
 		background: none;
 		color: #fff;
@@ -40,7 +48,7 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		&:active {
-			color: #4d515b;
+			background: #4d515b;
 		}
 	}
 	span {
@@ -83,9 +91,10 @@
 	padding: 1em;
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	width: 100%;
+	left: 0.5em;
+	width: calc(100% - 1em);
 	background-color: rgba(0, 0, 0, 0.6);
+	font-family: 'PT Sans', sans-serif;
 }
 .model_info_title {
 	h5 {
@@ -123,6 +132,7 @@
 	align-content: center;
 }
 .vertical_slide_model_info {
+	font-family: 'PT Sans', sans-serif;
 	background-color: #222222;
 	display: grid;
 	grid-template-columns: 6fr 1fr;
@@ -169,7 +179,7 @@
 	}
 }
 .verified {
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	position: relative;
 	background-color: #e477b1;
 	font-size: 16px;
@@ -193,7 +203,7 @@
 }
 .view_profile {
 	white-space: nowrap;
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	background-color: #0098a7;
 	font-size: 21px;
 	height: calc(100% + 0.5em);
@@ -202,7 +212,7 @@
 	text-transform: uppercase;
 	padding: 0.2em 1.5em 0.1em 1.5em;
 	@media screen and (max-width: 400px) {
-		padding: 0.2em .4em 0.1em .4em;
+		padding: 0.2em 0.4em 0.1em 0.4em;
 		margin: -0.5em 0 0 0;
 	}
 	&:hover {

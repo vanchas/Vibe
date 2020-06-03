@@ -1,0 +1,258 @@
+.filter_form {
+	max-width: 700px;
+	margin: 0 auto;
+	display: grid;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+	padding: 2em 1em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+
+	legend {
+		font-family: "Audiowide", cursive;
+	}
+}
+.sex_block {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 2;
+	}
+}
+.age_block {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 2;
+	}
+	input {
+		color: #fff;
+		background-color: rgba(77, 81, 91, 0.349);
+		border: 1px solid #444444;
+		&::placeholder {
+			color: #c9c9c9;
+		}
+		&:focus {
+			color: #fff;
+			background-color: #4d515b;
+		}
+	}
+}
+.ethnicity_block {
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+	}
+	select {
+		color: #fff;
+		background-color: rgba(77, 81, 91, 0.349);
+		border: 1px solid #444444;
+		&:focus {
+			color: #fff;
+			background-color: #4d515b;
+		}
+	}
+}
+.hair_block {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 5;
+	}
+	@media screen and (max-width: 500px) {
+		grid-template-columns: repeat(3, 1fr);
+		legend {
+			grid-column: span 3;
+		}
+	}
+	@media screen and (max-width: 340px) {
+		grid-template-columns: repeat(2, 1fr);
+		legend {
+			grid-column: span 2;
+		}
+	}
+}
+.eye_block {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 4;
+	}
+	@media screen and (max-width: 400px) {
+		grid-template-columns: repeat(2, 1fr);
+		legend {
+			grid-column: span 2;
+		}
+	}
+}
+.affiliation_block {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 2;
+	}
+}
+.availableTo_block {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 3;
+	}
+	@media screen and (max-width: 400px) {
+		grid-template-columns: repeat(2, 1fr);
+		legend {
+			grid-column: span 2;
+		}
+	}
+}
+.availability_block {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 1em;
+	legend {
+		padding-left: 0.5em;
+		background-color: #4d515b;
+		grid-column: span 2;
+	}
+}
+.btn_submit {
+	background-color: #0098a7;
+	color: #fff;
+	padding: 0.3em 2em;
+	font-family: "Audiowide", cursive;
+}
+
+
+
+/* Customize the label (the container) */
+.label {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 1.2em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.label input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	height: 0.8em;
+	width: 0.8em;
+	background-color: #747985;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.label:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.label input:checked ~ .checkmark {
+	background-color: #fff;
+	// box-shadow: 0 0 5px 2px #0098a7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label .checkmark:after {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 50%;
+	background: #0098a7;
+}
+
+// checkboxes
+.checksign {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	height: 0.8em;
+	width: 0.8em;
+	background-color: #747985;
+}
+
+/* On mouse-over, add a grey background color */
+.label:hover input ~ .checksign {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.label input:checked ~ .checksign {
+	background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checksign:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.label input:checked ~ .checksign:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.label .checksign:after {
+	left: 50%;
+	top: 50%;
+	width: .5em;
+	height: .8em;
+	border: solid #0098a7;
+	border-width: 0 4px 4px 0;
+	-webkit-transform: rotate(45deg) translate(-80%, -40%);
+	-ms-transform: rotate(45deg) translate(-80%, -40%);
+	transform: rotate(45deg) translate(-80%, -40%);
+}

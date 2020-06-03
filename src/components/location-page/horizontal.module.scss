@@ -27,11 +27,12 @@
 	padding: 0 0.5em;
 }
 .loc_slide_info {
+	font-family: 'PT Sans', sans-serif;
 	padding: 0.6em 0 0.6em 1em;
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	width: 100%;
+	left: .5em;
+	width: calc(100% - 1em);
 	background-color: rgba(0, 0, 0, 0.6);
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -47,9 +48,6 @@
 			display: grid;
 			grid-template-columns: 1fr;
 		}
-		// .slide_location {
-		// 	justify-self: center;
-		// }
     .slide_control {
 			justify-self: center;
       padding-bottom: .5em;
@@ -115,6 +113,6 @@
 		border-left: 30px solid transparent;
 		border-right: 0px solid transparent;
 		border-bottom: 1.6em solid #daae13;
-		transform: translateX(-100%);
+		transform: translate(-100%, -1px);
 	}
 }

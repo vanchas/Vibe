@@ -48,7 +48,7 @@ export default function LocPageControl() {
       setShowCities(false);
     });
     $('.filter_items_block').hide(() => {
-      setShowFilter(false);
+      setShowFilter(true);
     });
   }, []);
 
@@ -80,6 +80,13 @@ export default function LocPageControl() {
           <h5>ESCORTS IN {currentCity.toUpperCase()}</h5>
           <div onClick={slideCitiesList}>CHANGE LOCATION</div>
         </div>
+
+        <div className={`loc_cities_list ${s.loc_cities_list}`}>
+          <ul>{cities.map((c, i) => (
+            <li onClick={e => changeCity(c)} key={i} className={`${currentCity === c ? 'active_btn_blue' : ''} btn city-item`}><span>{c}</span></li>
+          ))}</ul>
+        </div>
+
         <div className={`${s.loc_page_filter_control}`}>
           <div onClick={slideFilter}>FILTER</div>
           <input type="text" placeholder="filter"
@@ -100,12 +107,6 @@ export default function LocPageControl() {
           setAvailability={setAvailability}
           applyFilter={applyFilter}
         />
-      </div>
-
-      <div className={`loc_cities_list ${s.loc_cities_list}`}>
-        <ul>{cities.map((c, i) => (
-          <li onClick={e => changeCity(c)} key={i} className={`${currentCity === c ? 'active_btn_blue' : ''} btn city-item`}><span>{c}</span></li>
-        ))}</ul>
       </div>
     </div>
   );

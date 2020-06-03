@@ -62,9 +62,7 @@ export default function Location() {
 
   const changeLocation = location => {
     setCurrentLocation(location);
-    // if (loc) {
     router.push('/location');
-    // }
   }
 
   return (

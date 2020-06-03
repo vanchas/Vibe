@@ -37,7 +37,7 @@ export default function EscortContent() {
     e.persist();
     $('.models-view-block').fadeOut(300, function () {
       setVisibleComponent($(e.target).attr('name'));
-      $('.models-view-block').fadeIn(300);
+      $('.models-view-block').fadeIn(700);
     });
   }
 
@@ -53,8 +53,8 @@ export default function EscortContent() {
       <div className={`${s.filter_sort_control}`}>
         <div className={s.filter_btn_wrap}>
           <div className={s.filter_btn_group}>
-            <span onClick={slideFilter} className={s.filter_btn}>FILTER</span>
-            <select className={`form-control border-0 ${s.sorting_btn}`}>
+            <span onClick={slideFilter} className={`pl-2 ${s.filter_btn}`}>FILTER</span>
+            <select className={`pl-2 form-control border-0 ${s.sorting_btn}`}>
               <option value="default" hidden>SORTING</option>
               <option value="price / from biger to smaller">price / from biger to smaller</option>
               <option value="price / from smaller to biger">price / from smaller to biger</option>

@@ -1,0 +1,60 @@
+.login_page_form {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 0.5em;
+	background-color: #3f4248;
+	border-radius: 0.5em;
+
+	h2 {
+		color: #0098a7;
+		font-family: "Audiowide", cursive;
+	}
+	label {
+		color: #0098a7;
+	}
+
+	input,
+	input:active {
+		// background-color: #666 !important;
+	}
+
+	.submit_btn {
+		background-color: #0098a7;
+		color: #fff;
+		font-family: "Audiowide", cursive;
+		&:hover {
+			background-color: #007580;
+			color: #fff;
+		}
+	}
+}
+
+.login_btn_control {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 0.5em;
+	display: grid;
+	justify-content: end;
+	span {
+		background: linear-gradient(125deg, #e477b1 40%, #0098a7 70%);
+		border: #2a2c30;
+		color: #fff;
+		font-family: "Audiowide", cursive;
+		margin: 1em 0;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+.login_btn_control.active {
+	span {
+		background: linear-gradient(125deg, #0098a7 40%, #e477b1 70%);
+		border: #2a2c30;
+		color: #fff;
+		font-family: "Audiowide", cursive;
+		margin: 1em 0;
+		&:hover {
+			color: #fff;
+		}
+	}
+}

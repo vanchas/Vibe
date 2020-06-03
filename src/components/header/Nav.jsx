@@ -18,7 +18,9 @@ const NavComponent = props => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div style={{
+      maxWidth: '1260px', margin: '0 auto'
+    }}>
       <Navbar color="dark" dark expand="lg">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -31,6 +33,9 @@ const NavComponent = props => {
             </NavItem>
             <NavItem>
               <NavLink href="/addPost" onClick={() => setActiveLink('add post')} className={activeLink === 'add post' ? s.activeLink : null}>Add Post</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/login" onClick={() => setActiveLink('login')} className={activeLink === 'login' ? s.activeLink : null}>Login</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/test" onClick={() => setActiveLink('test')} className={activeLink === 'test' ? s.activeLink : null}>TEST</NavLink>

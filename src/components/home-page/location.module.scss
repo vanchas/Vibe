@@ -49,6 +49,8 @@
 			a {
 				text-decoration: none;
 				color: #fff;
+				white-space: nowrap;
+				font-family: 'PT Sans', sans-serif;
 				&:hover {
 					transition: 0.2s;
 					color: #00e8ff;

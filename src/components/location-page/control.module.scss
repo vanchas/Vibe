@@ -65,7 +65,13 @@
 			}
 		}
 	}
-	@media screen and (max-width: 899px) {
+	@media screen and (max-width: 1100px) {
+		h5,
+		div {
+			font-size: 20px;
+		}
+	}
+	@media screen and (max-width: 768px) {
 		grid-template-columns: 1fr;
 		margin-bottom: 1em;
 		h5,
@@ -103,14 +109,14 @@
 		}
 		background-color: #797a7d;
 	}
-	@media screen and (max-width: 768px) {
-		margin-bottom: 1em;
-		grid-template-columns: 1fr;
-		padding: 0 0.5em;
-		div {
-			display: none;
-		}
-	}
+	// @media screen and (max-width: 768px) {
+	// 	margin-bottom: 1em;
+	// 	grid-template-columns: 1fr;
+	// 	padding: 0 0.5em;
+	// 	div {
+	// 		display: none;
+	// 	}
+	// }
 }
 
 .loc_cities_list {
@@ -124,6 +130,7 @@
 			color: #fff;
 			font-size: 1.1em;
 			font-weight: 400;
+			font-family: 'PT Sans', sans-serif;
 			&:hover {
 				color: #00e8ff;
 			}

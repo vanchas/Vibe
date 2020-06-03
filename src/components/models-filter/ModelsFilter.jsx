@@ -1,53 +1,95 @@
-import React from 'react'
+import React from "react";
+import s from "./form.module.scss";
 
-export default function ModelsFilter({ setSex, setAgeFrom, setAgeTo, setEthnicity, setHair, setEye, setAffiliation, setAvailableTo, setAvailability, applyFilter }) {
+export default function ModelsFilter({
+  setSex,
+  setAgeFrom,
+  setAgeTo,
+  setEthnicity,
+  setHair,
+  setEye,
+  setAffiliation,
+  setAvailableTo,
+  setAvailability,
+  applyFilter
+}) {
   return (
-    <form onSubmit={applyFilter} className="form-group container pt-4">
-      <div className="d-flex justify-content-center">
-        <div className="form-check pr-3">
-          <label className="form-check-label">
-            <input value="female" className="form-check-input" type="radio" name="sex"
-              onChange={e => setSex(e.target.value)} />
-                Female
-            </label>
-        </div>
-        <div className="form-check pr-3">
-          <label className="form-check-label">
-            <input value="male" className="form-check-input" type="radio" name="sex"
-              onChange={e => setSex(e.target.value)} />
-                Male
-            </label>
-        </div>
+    <form onSubmit={applyFilter} className={s.filter_form}>
+      <div className={s.sex_block}>
+        <legend>Sex</legend>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="female"
+            type="radio"
+            name="sex"
+            onChange={(e) => setSex(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Female
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="male"
+            type="radio"
+            name="sex"
+            onChange={(e) => setSex(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Male
+				</label>
       </div>
 
-      <label className="form-group text-center d-block">
-        Age
-            <div className="d-flex justify-content-center">
-          <input className="form-control" type="number" placeholder="from"
-            onClick={e => setAgeFrom(e.target.value)} />
-              &nbsp;
-              <input className="form-control" type="number" placeholder="to"
-            onClick={e => setAgeTo(e.target.value)} />
-        </div>
+      <label className={`${s.age_block} form-group`}>
+        <legend> Age</legend>
+        <input
+          min="18"
+          className="mr-2"
+          className="form-control"
+          type="number"
+          placeholder="from"
+          onClick={(e) => setAgeFrom(e.target.value)}
+        />
+        <input
+          className="mr-2"
+          className="form-control"
+          type="number"
+          placeholder="to"
+          onClick={(e) => setAgeTo(e.target.value)}
+        />
       </label>
 
-      <label className="form-group text-center d-block">
-        Ethnicity:
-            <select className="form-control dropdown" onClick={e => setEthnicity(e.target.value)} >
-          <option hidden value="default">-- select one --</option>
+      <label className={`${s.ethnicity_block} form-group`}>
+        <legend>Ethnicity:</legend>
+        <select
+          className="form-control dropdown"
+          onClick={(e) => setEthnicity(e.target.value)}
+        >
+          <option hidden value="default">
+            -- select one --
+					</option>
           <optgroup label="White">
             <option value="White English">English</option>
             <option value="White Welsh">Welsh</option>
             <option value="White Scottish">Scottish</option>
             <option value="White Northern Irish">Northern Irish</option>
             <option value="White Irish">Irish</option>
-            <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+            <option value="White Gypsy or Irish Traveller">
+              Gypsy or Irish Traveller
+						</option>
             <option value="White Other">Any other White background</option>
           </optgroup>
           <optgroup label="Mixed or Multiple ethnic groups">
-            <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
-            <option value="Mixed White and Black African">White and Black African</option>
-            <option value="Mixed White Other">Any other Mixed or Multiple background</option>
+            <option value="Mixed White and Black Caribbean">
+              White and Black Caribbean
+						</option>
+            <option value="Mixed White and Black African">
+              White and Black African
+						</option>
+            <option value="Mixed White Other">
+              Any other Mixed or Multiple background
+						</option>
           </optgroup>
           <optgroup label="Asian">
             <option value="Asian Indian">Indian</option>
@@ -73,105 +115,200 @@ export default function ModelsFilter({ setSex, setAgeFrom, setAgeTo, setEthnicit
         </select>
       </label>
 
-      <div className="text-center">
+      <div className={s.hair_block}>
         <legend>Hair</legend>
-        <div className="d-flex justify-content-between">
-          <label className="form-check-label">
-            <input value="brown" className="" type="radio" name="hair"
-              onClick={e => setHair(e.target.value)} />
-                Brown
-            </label>
-          <label className="form-check-label">
-            <input value="blonde" className="" type="radio" name="hair"
-              onClick={e => setHair(e.target.value)} />
-                Blonde
-            </label>
-          <label className="form-check-label">
-            <input value="black" className="" type="radio" name="hair"
-              onClick={e => setHair(e.target.value)} />
-                Black
-            </label>
-          <label className="form-check-label">
-            <input value="auburn" className="" type="radio" name="hair"
-              onClick={e => setHair(e.target.value)} />
-                Auburn
-            </label>
-          <label className="form-check-label">
-            <input value="color" className="" type="radio" name="hair"
-              onClick={e => setHair(e.target.value)} />
-                Color
-            </label>
-        </div>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="brown"
+            type="radio"
+            name="hair"
+            onClick={(e) => setHair(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Brown
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="blonde"
+            type="radio"
+            name="hair"
+            onClick={(e) => setHair(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Blonde
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="black"
+            type="radio"
+            name="hair"
+            onClick={(e) => setHair(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Black
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="auburn"
+            type="radio"
+            name="hair"
+            onClick={(e) => setHair(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Auburn
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="color"
+            type="radio"
+            name="hair"
+            onClick={(e) => setHair(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Color
+				</label>
       </div>
 
-      <div className="form-check text-center">
+      <div className={s.eye_block}>
         <legend>Eye</legend>
-        <div className="d-flex justify-content-around">
-          <label className="form-check-label">
-            <input value="brown" className="form-check-input" type="radio" name="eye"
-              onClick={e => setEye(e.target.value)} />
-                Brown
-            </label>
-          <label className="form-check-label">
-            <input value="grey" className="form-check-input" type="radio" name="eye"
-              onClick={e => setEye(e.target.value)} />
-                Grey
-            </label>
-          <label className="form-check-label">
-            <input value="green" className="form-check-input" type="radio" name="eye"
-              onClick={e => setEye(e.target.value)} />
-                Green
-            </label>
-          <label className="form-check-label">
-            <input value="blue" className="form-check-input" type="radio" name="eye"
-              onClick={e => setEye(e.target.value)} />
-                Blue
-            </label>
-        </div>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="brown"
+            type="radio"
+            name="eye"
+            onClick={(e) => setEye(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Brown
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="grey"
+            type="radio"
+            name="eye"
+            onClick={(e) => setEye(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Grey
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="green"
+            type="radio"
+            name="eye"
+            onClick={(e) => setEye(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Green
+				</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="blue"
+            type="radio"
+            name="eye"
+            onClick={(e) => setEye(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+					Blue
+				</label>
       </div>
 
-      <div className="text-center">
+      <div className={s.affiliation_block}>
         <legend>Affiliation</legend>
-        <div className="d-flex justify-content-center">
-          <label className="form-check-label pr-3">
-            <input value="independent" className="" type="radio" name="affiliation"
-              onClick={e => setAffiliation(e.target.value)} />
-                Independent
-            </label>
-          <label className="form-check-label pr-3">
-            <input value="else" className="" type="radio" name="affiliation"
-              onClick={e => setAffiliation(e.target.value)} />
-                Else
-            </label>
-        </div>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="independent"
+            type="radio"
+            name="affiliation"
+            onClick={(e) => setAffiliation(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+						Independent
+					</label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            value="agencies"
+            type="radio"
+            name="affiliation"
+            onClick={(e) => setAffiliation(e.target.value)}
+          />
+          <span className={s.checkmark}></span>
+						Agencies
+					</label>
       </div>
 
-      <div className="form-check text-center">
+      <div className={s.availableTo_block}>
         <legend> Available To:</legend>
-        <div className="d-flex justify-content-center">
-          <label className="form-check">
-            Men
-                <input type="checkbox" className="" onClick={e => setAvailableTo(e.target.value)} value="men" />
-          </label>
-          <label className="form-check">
-            Wemen
-                <input type="checkbox" className="" onClick={e => setAvailableTo(e.target.value)} value="wemen" />
-          </label>
-          <label className="form-check">
-            Couples
-                <input type="checkbox" className="" onClick={e => setAvailableTo(e.target.value)} value="couples" />
-          </label>
-        </div>
-      </div>
-
-      <div className="form-check text-center">
-        <legend>Availability:</legend>
-        <label className="form-check">
-          Incall / Outcall
-                <input type="checkbox" className="" onClick={e => setAvailability(e.target.value)} value="Incall / Outcall" />
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            type="checkbox"
+            onClick={(e) => setAvailableTo(e.target.value)}
+            value="men"
+          />
+          <span className={s.checksign}></span>
+          Men
+        </label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            type="checkbox"
+            onClick={(e) => setAvailableTo(e.target.value)}
+            value="wemen"
+          />
+          <span className={s.checksign}></span>
+          Wemen
+        </label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            type="checkbox"
+            onClick={(e) => setAvailableTo(e.target.value)}
+            value="couples"
+          />
+          <span className={s.checksign}></span>
+          Couples
         </label>
       </div>
-      <button type="submit" className="btn btn-light">Show</button>
+
+      <div className={s.availability_block}>
+        <legend>Availability:</legend>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            type="checkbox"
+            onClick={(e) => setAvailability(e.target.value)}
+            value="Incall"
+          />
+          <span className={s.checksign}></span>
+          Incall
+        </label>
+        <label className={s.label}>
+          <input
+            className="mr-2"
+            type="checkbox"
+            onClick={(e) => setAvailability(e.target.value)}
+            value="Outcall"
+          />
+          <span className={s.checksign}></span>
+          Outcall
+        </label>
+      </div>
+
+      <button type="submit" className={`rounded border-0 ${s.btn_submit}`}>
+        Show
+			</button>
     </form>
-  )
+  );
 }

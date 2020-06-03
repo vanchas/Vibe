@@ -29,6 +29,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "src/pages/index.jsx", "src/redux/actions/types.ts", "src/redux/actions/actions.ts", "src/redux/middleware.ts", "src/redux/sagas.js"
+    "**/*.tsx", "src/pages/index.jsx", "src/redux/actions/types.ts", "src/redux/actions/actions.ts", "src/redux/middleware.ts", "src/redux/sagas.js", "src/redux/sagas/providerSagas.js", "src/redux/sagas/userSagas.js"
   ]
 }

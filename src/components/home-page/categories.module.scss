@@ -83,13 +83,14 @@
 		color: #00e8ff;
 	}
 	a {
+		font-family: 'PT Sans', sans-serif;
 		color: #fff;
 		text-decoration: none;
 		div {
 			position: absolute;
 			bottom: 0;
-			left: 0;
-			width: 100%;
+			left: .2em;
+			width: calc(100% - .4em);
 			background-color: rgba(0, 0, 0, 0.5);
 			padding: 1em;
 			font-size: 25px;
