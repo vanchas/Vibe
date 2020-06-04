@@ -4,9 +4,12 @@ import ModelsFilter from '../models-filter/ModelsFilter'
 import EscortList from './EscortList'
 import EscortGrid from './EscortGrid'
 import $ from 'jquery'
-import m1 from '../../assets/images/main/vertical/model-1.png';
-import m2 from '../../assets/images/main/vertical/model-2.png';
-
+import m1v from '../../assets/images/main/vertical/model-1.png';
+import m2v from '../../assets/images/main/vertical/model-2.png';
+import m3h from '../../assets/images/main/horizontal/model-3.png'
+import m4h from '../../assets/images/main/horizontal/model-4.png'
+import m1h from '../../assets/images/main/horizontal/model-1.png'
+import m2h from '../../assets/images/main/horizontal/model-2.png'
 
 export default function EscortContent() {
   const [visibleComponent, setVisibleComponent] = useState('list');
@@ -89,8 +92,8 @@ export default function EscortContent() {
 
       <div className="models-view-block">
         {visibleComponent === 'list' ?
-          <EscortList />
-          : <EscortGrid models={[m1, m2]} />}
+          <EscortList models={[m1h, m2h, m3h, m4h, m1h, m2h]} />
+          : <EscortGrid models={[m1v, m2v]} />}
       </div>
 
     </section>

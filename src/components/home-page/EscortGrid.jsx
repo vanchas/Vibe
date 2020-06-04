@@ -5,16 +5,17 @@ import fav from '../../assets/images/main/signs/favorite-pink.png';
 import crown from '../../assets/images/main/signs/crown-pink.png';
 import star from '../../assets/images/main/signs/star-pink.png';
 import plane from '../../assets/images/main/signs/plane-pink.png';
+import VerifiedWindow from '../modal-window/VerifiedWindow';
 
 
-export default function EscortGrid(props) {
+export default function EscortGrid({models}) {
   return (
     <div style={{
       maxWidth: '1260px',
       margin: '1em auto',
       padding: '0 0 5em 0'
     }} >
-      {props.models.map((model, i) => {
+      {models.map((model, i) => {
         return <div key={i}>
           <div className={s.vertical_slide}>
             <div className={s.vertical_slide_image}>
@@ -42,7 +43,7 @@ export default function EscortGrid(props) {
                 </div>
               </div>
               <div className={`text-white ${s.verification}`}>
-                <span className={s.verified}>VERIFIED <i></i></span>
+                <span className={s.verified}><VerifiedWindow buttonLabel={`VERIFIED`} /><i></i></span>
                 <span className={s.view_profile}>
                   <Link href="/modelProfile"><a className="btn text-white">
                     VIEW PROFILE

@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 
 body {
 	background-color: #fff;
@@ -28,6 +28,7 @@ body {
 	color: #e477b1 !important;
 }
 
+// carousel
 .slick-prev {
 	z-index: 99 !important;
 	position: absolute !important;
@@ -39,10 +40,6 @@ body {
 	width: 70px !important;
 	transform: translate(0, 0) !important;
 	padding: 0 1em !important;
-	// &:hover {
-	// 	transition: 0.2s;
-	// 	background-color: rgba(0, 0, 0, 0.5) !important;
-	// }
 	&::before {
 		content: "\2039" !important;
 		font-family: auto !important;
@@ -61,10 +58,6 @@ body {
 	width: 70px !important;
 	transform: translate(0, 0) !important;
 	padding: 0 1em !important;
-	// &:hover {
-	// 	transition: 0.2s;
-	// 	background-color: rgba(0, 0, 0, 0.5) !important;
-	// }
 	&::before {
 		content: "\203A" !important;
 		font-family: auto !important;
@@ -100,9 +93,27 @@ body {
 	color: #d8a462 !important;
 }
 
-@font-face {
-	font-family: "Pricedown";
-	src: url("../../assets/fonts/Pricedown.ttf") format("opentype");
-	font-weight: normal;
-	font-style: normal;
+// modal window
+.modal-dialog {
+	border-radius: .8em;
+	overflow: hidden;
+	.close {
+		span {
+			color: #fff;
+			font-size: 1.5em;
+			font-weight: 100;
+			text-shadow: none;
+		}
+	}
+}
+@media (min-width: 576px) {
+	.modal-dialog {
+		max-width: 50% !important;
+		margin: 10% auto !important;
+		// margin: 0 !important;
+		// position: absolute;
+		// top: 50%;
+		// left: 50%;
+		// transform: translate(-50%, -50%) !important;
+	}
 }

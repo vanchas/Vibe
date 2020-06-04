@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Slider from "react-slick"
 import s from './escort.module.scss'
-import m1 from '../../assets/images/main/horizontal/model-1.png'
-import m2 from '../../assets/images/main/horizontal/model-2.png'
-import m3 from '../../assets/images/main/horizontal/model-3.png'
-import m4 from '../../assets/images/main/horizontal/model-4.png'
 import fav from '../../assets/images/main/signs/favorite-pink.png'
 import plane from '../../assets/images/main/signs/plane-pink.png'
 import star from '../../assets/images/main/signs/star-pink.png'
@@ -13,7 +9,7 @@ import crown from '../../assets/images/main/signs/crown-pink.png'
 
 
 
-export default function EscortList() {
+export default function EscortList({models}) {
   const [loaded, setLoaded] = useState(false);
 
   var settings = {
@@ -64,7 +60,7 @@ export default function EscortList() {
     }}>
       {loaded &&
         <Slider {...settings} >
-          {[m1, m2, m3, m4, m1, m2].map((m, i) => {
+          {models.map((m, i) => {
             return <div key={i} className={s.slide}>
               <Link href="/modelProfile"><a>
                 <img src={m} alt="model" className="mx-auto w-100" />

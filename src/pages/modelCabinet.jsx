@@ -6,7 +6,7 @@ import Ads from "../components/model-cabinet/Ads";
 import Prices from "../components/model-cabinet/Prices";
 import Balance from "../components/model-cabinet/Balance";
 import Customize from "../components/model-cabinet/Customize";
-import Support from "../components/model-cabinet/Support";
+import Support from "../components/support/Support";
 
 export default function ModelCabinet() {
   const [component, setComponent] = useState(<Ads />);

@@ -1,0 +1,138 @@
+.prices_wrap {
+	padding: 2em 0 4em 0;
+	max-width: 1260px;
+	margin: 0 auto;
+	color: #fff !important;
+}
+
+.slide {
+	font-family: 'Montserrat', sans-serif;
+	padding: 0 0.5em;
+}
+.slide_4 {
+	.price_item {
+		background-color: #e477b1;
+	}
+	.price_subtitle {
+		background-color: #a15dc0;
+	}
+}
+.slide_1 {
+	.price_item {
+		background-color: #36383e;
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 100%);
+			border-left: 15px solid transparent;
+			border-right: 15px solid transparent;
+			border-top: 1.5em solid #e477b1;
+		}
+	}
+	.price_subtitle {
+		background-color: #e477b1;
+	}
+}
+.slide_2 {
+	.price_item {
+		background-color: #36383e;
+	}
+	.price_subtitle {
+		background-color: #0098a7;
+	}
+}
+.slide_3 {
+	.price_item {
+		background-color: #36383e;
+	}
+	.price_subtitle {
+		background-color: #d8a462;
+	}
+}
+
+.price_item {
+	font-family: 'Audiowide', cursive;
+	padding: 1em 0 0 0;
+	display: grid;
+	justify-items: center;
+	margin-bottom: 3em;
+	white-space: nowrap;
+	.price_title {
+		font-size: 42px;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+	.price {
+		font-size: 100px;
+		font-weight: 400;
+		i {
+			display: inline-block;
+			transform: translateY(-30%);
+			font-style: normal;
+			font-size: 51px;
+			font-weight: 700;
+		}
+	}
+	.per_month {
+		font-size: 21px;
+		font-weight: 400;
+		padding-bottom: 1em;
+	}
+	.price_subtitle {
+		padding: 0.2em 0;
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: 21px;
+		font-weight: 400;
+	}
+}
+
+.price_desc_item_1 {
+	.price_desc_item_title {
+		color: #e477b1;
+	}
+	.description_text_item {
+		background-color: rgba(161, 93, 192, 0.2);
+	}
+}
+.price_desc_item_2 {
+	.price_desc_item_title {
+		color: #0098a7;
+	}
+	.description_text_item {
+		background-color: rgba(0, 153, 167, 0.2);
+	}
+}
+.price_desc_item_3 {
+	.price_desc_item_title {
+		color: #d8a462;
+	}
+	.description_text_item {
+		background-color: rgba(216, 165, 98, 0.2);
+	}
+}
+.price_desc_item_4 {
+	.price_desc_item_title {
+		color: #a15dc0;
+	}
+	.description_text_item {
+		background-color: rgba(161, 93, 192, 0.2);
+	}
+}
+
+.price_desc_item {
+	.price_desc_item_title {
+		font-size: 25px;
+		font-weight: 700;
+		padding: 0 0 .5em 0;
+	}
+	.description_text_item {
+		padding: 1em;
+		font-size: 17px;
+		font-weight: 400;
+	}
+}

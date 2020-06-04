@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import s from './prices.module.scss'
 
-export default function Prices() {
+export default function UserPrices() {
   var settings = {
     infinite: true,
     speed: 1000,

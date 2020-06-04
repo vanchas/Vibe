@@ -1,10 +1,10 @@
 .profile_control {
 	margin: 2em 0;
 	background-color: #e477b1;
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	padding: 0.2em 0;
 	@media screen and (max-width: 768px) {
-		padding: .5em 0;
+		padding: 0.5em 0;
 	}
 }
 .profile_control_buttons {
@@ -19,7 +19,7 @@
 		grid-auto-flow: column;
 		grid-gap: 2em;
 		span {
-			font-family: 'Audiowide', cursive;
+			font-family: "Audiowide", cursive;
 			font-size: 25px;
 			font-weight: 400;
 			text-transform: uppercase;
@@ -54,8 +54,8 @@
 		margin: 0;
 		padding: 0 0 3em 0;
 		grid-gap: 2em;
-  }
-  @media screen and (max-width: 520px) {
+	}
+	@media screen and (max-width: 520px) {
 		text-align: center;
 	}
 }
@@ -68,33 +68,42 @@
 .image_block {
 	max-width: 100%;
 	@media screen and (max-width: 1260px) {
-    width: calc(100vw - 2em);
-    display: grid;
+		width: calc(100vw - 2em);
+		display: grid;
 	}
 	.images_track {
-    max-width: 100%;
-    img {
-      width: 100%;
+		max-width: 100%;
+		img {
+			width: 100%;
 		}
-    @media screen and (max-width: 1260px) {
-      height: auto;
-      // display: grid;
-    }
+		@media screen and (max-width: 1260px) {
+			height: auto;
+			// display: grid;
+		}
+	}
+	.report_btn_group {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1em;
+		@media screen and (max-width: 768px) {
+			grid-template-columns: 1fr;
+		}
 	}
 	.report_btn {
-		max-width: 100%;
+		// width: 100%;
 		margin-top: 1em;
 		font-size: 17px;
 		font-weight: 700;
 		padding: 1em;
+		// display: block;
 		text-align: center;
 		background-color: #0098a7;
-		font-family: 'Montserrat', sans-serif;
-		display: flex;
-		justify-content: space-around;
-		@media screen and (max-width: 400px) {
-      display: grid;
-    }
+		font-family: "Montserrat", sans-serif;
+		// display: flex;
+		// justify-content: space-around;
+		// @media screen and (max-width: 400px) {
+		//   display: grid;
+		// }
 
 		cursor: pointer;
 		&:hover {
@@ -109,7 +118,7 @@
 		padding: 1em 0;
 		text-align: center;
 		background-color: #f3c217;
-		font-family: 'Montserrat', sans-serif;
+		font-family: "Montserrat", sans-serif;
 		cursor: pointer;
 		&:hover {
 			transition: 0.1s;
@@ -125,7 +134,7 @@
 }
 
 .content_block {
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-weight: 600;
 	padding: 0 0 0 1em;
 	@media screen and (max-width: 1260px) {
@@ -136,8 +145,8 @@
 	display: flex;
 	justify-content: space-between;
 	@media screen and (max-width: 520px) {
-    display: grid;
-    justify-content: center;
+		display: grid;
+		justify-content: center;
 	}
 	div {
 		img {
@@ -171,7 +180,7 @@
 	padding: 0.8em 1em 0.7em 1em;
 	justify-content: space-between;
 	@media screen and (max-width: 520px) {
-    display: grid;
+		display: grid;
 		justify-content: center;
 		margin-top: 2em;
 	}
@@ -179,7 +188,7 @@
 		font-size: 17px;
 		font-weight: 400;
 		text-transform: uppercase;
-		font-family: 'Audiowide', cursive;
+		font-family: "Audiowide", cursive;
 		a {
 			font-family: sans-serif;
 			cursor: pointer;
@@ -189,8 +198,8 @@
 			padding: 0 0 0 1em;
 		}
 		@media screen and (max-width: 520px) {
-      display: grid;
-      justify-self: center;
+			display: grid;
+			justify-self: center;
 			a {
 				width: 100%;
 				text-align: center;
@@ -241,7 +250,7 @@
 }
 
 .add_comment_block {
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	background-color: #e477b1;
 	width: 100%;
 	max-width: 1260px;
@@ -253,7 +262,7 @@
 		font-weight: 400;
 		text-transform: uppercase;
 		@media screen and (max-width: 520px) {
-			padding: .2em .5em;
+			padding: 0.2em 0.5em;
 			font-size: 20px;
 		}
 	}
@@ -275,7 +284,7 @@
 }
 .comments_block_title {
 	background-color: #e477b1;
-	font-family: 'Audiowide', cursive;
+	font-family: "Audiowide", cursive;
 	width: 100%;
 	padding: 0.5em;
 	font-size: 25px;
@@ -283,7 +292,7 @@
 	text-transform: uppercase;
 	margin-bottom: 1em;
 	@media screen and (max-width: 520px) {
-		padding: .2em .5em;
+		padding: 0.2em 0.5em;
 		font-size: 20px;
 	}
 }
@@ -291,7 +300,7 @@
 	color: #eee;
 	background-color: #50535b;
 	padding: 1.5em;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-weight: 600;
 	p {
 		margin-top: 0.5em;

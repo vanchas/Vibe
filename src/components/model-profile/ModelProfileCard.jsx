@@ -6,6 +6,8 @@ import fav from "../../assets/images/main/signs/favorite-pink.png";
 import crown from "../../assets/images/main/signs/crown-pink.png";
 import star from "../../assets/images/main/signs/star-pink.png";
 import plane from "../../assets/images/main/signs/plane-pink.png";
+import ReportFakePhotosModalWindow from "./ReportFakePhotos";
+import ReportTraffickingModalWindow from "./ReportTrafficking";
 
 export default function ModelProfileCard() {
   return (
@@ -18,8 +20,9 @@ export default function ModelProfileCard() {
           <div>
             <ProfileVideo />
           </div>
-          <div className={`${s.report_btn} text-white`}>
-            <span> Report Fake Photos </span> <span> Report Trafficking </span>
+          <div className={s.report_btn_group}>
+            <ReportFakePhotosModalWindow buttonLabel={'Report Fake Photos'} className={``} />
+            <ReportTraffickingModalWindow buttonLabel={'Report Trafficking'} className={``} />
           </div>
           <div className={`${s.favorite_btn} text-white`}>
             Add to favourites
