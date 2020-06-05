@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import s from './header.module.scss';
 import PropTypes from 'prop-types';
+import { authenticationService } from '../../_services';
 import {
   Collapse,
   Navbar,
@@ -36,6 +37,12 @@ const NavComponent = props => {
             </NavItem>
             <NavItem>
               <NavLink href="/login" onClick={() => setActiveLink('login')} className={activeLink === 'login' ? s.activeLink : null}>Login</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink onClick={() => authenticationService.logout()} >Logout</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/admin" onClick={() => setActiveLink('admin')} className={activeLink === 'admin' ? s.activeLink : null}>Admin</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/test" onClick={() => setActiveLink('test')} className={activeLink === 'test' ? s.activeLink : null}>TEST</NavLink>

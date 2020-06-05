@@ -10,24 +10,19 @@ export default function SignIn() {
 
   return (
     <div className={s.login_page_form}>
-      <div className="alert alert-info">
-        <strong>Normal User</strong> - U: user P: user<br />
-        <strong>Administrator</strong> - U: admin P: admin<br />
-        <strong>Provider</strong> - U: pro P: pro
-        </div>
       <h2>Login</h2>
       <Formik
         initialValues={{
-          username: '',
+          email: '',
           password: ''
         }}
         validationSchema={Yup.object().shape({
-          username: Yup.string().required('Username is required'),
+          email: Yup.string().required('email is required'),
           password: Yup.string().required('Password is required')
         })}
-        onSubmit={({ username, password }, { setStatus, setSubmitting }) => {
+        onSubmit={({ email, password }, { setStatus, setSubmitting }) => {
           setStatus();
-          authenticationService.login(username, password)
+          authenticationService.login(email, password)
             .then(
               user => {
                 const { from } =
@@ -44,9 +39,9 @@ export default function SignIn() {
         render={({ errors, status, touched, isSubmitting }) => (
           <Form>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
-              <ErrorMessage name="username" component="div" className="invalid-feedback" />
+              <label htmlFor="email">Email</label>
+              <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+              <ErrorMessage name="email" component="div" className="invalid-feedback" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>

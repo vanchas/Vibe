@@ -177,43 +177,9 @@
 	}
 }
 
-// .user_edit_control {
-// 	font-family: "Audiowide", cursive;
-// 	background-color: #1a1b1f;
-// 	// background-color: #e477b1;
-// 	width: 100%;
-// 	margin: 2em 0 1em 0;
-// 	padding: 0.3em 0;
-// 	div {
-// 		max-width: 1260px;
-// 		margin: 0 auto;
-// 		display: flex;
-// 		justify-content: space-between;
-// 		span:nth-child(1) {
-// 			color: #fff;
-// 			font-weight: 500;
-// 			text-transform: uppercase;
-// 			font-size: 25px;
-// 		}
-// 		span:nth-child(2) {
-// 			color: #fff;
-// 			text-transform: uppercase;
-// 			font-size: 25px;
-// 		}
-// 	}
-// 	@media screen and (max-width: 1260px) {
-// 		padding: 0.3em 1em;
-// 	}
-// 	@media screen and (max-width: 768px) {
-// 		// padding: 0.3em 1em;
-// 		div span:nth-child(1) {
-// 			font-size: 20px;
-// 		}
-// 		div span:nth-child(2) {
-// 			font-size: 20px;
-// 		}
-// 	}
-// }
+.user_edit_control {
+	padding-top: 1.5em;
+}
 
 // reports
 .reports_block {
