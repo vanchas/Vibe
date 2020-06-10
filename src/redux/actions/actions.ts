@@ -1,4 +1,5 @@
-import { TEST_CREATE_POST, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, TEST_REQUEST_POSTS } from "./types"
+import { TEST_CREATE_POST, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, TEST_REQUEST_POSTS, GET_CATEGORIES } from "./types"
+import fetch from 'isomorphic-unfetch';
 
 // T E S T 
 export function createPost(post: any): any {
@@ -38,4 +39,12 @@ export function fetchPosts(): any {
         type: TEST_REQUEST_POSTS
     }
 };
-
+export const getCategories = () => async (dispatch: any) => {
+    const response = await fetch('https://intim-vibe-api.padilo.pro/api/categories');
+    const promise = response.json();
+    promise.then(res => {
+      dispatch({ type: GET_CATEGORIES, payload: res.data });
+      console.log('categories from action:', res.data);
+    });
+    return response;
+  }

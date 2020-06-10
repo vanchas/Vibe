@@ -1,31 +1,31 @@
 import fetch from 'isomorphic-unfetch';
-// import { takeEvery, put, call } from 'redux-saga/effects';
-// import { REQUEST_POSTS, FETCH_POST } from '../actions/types';
-// import { showLoader, hideLoader, showAlert } from '../actions/actions';
+import { takeEvery, put, call } from 'redux-saga/effects';
+import { REQUEST_POSTS, FETCH_POST, ALL_POSTS } from '../actions/types';
+import { showLoader, hideLoader, showAlert } from '../actions/actions';
 
-// export function* sagaWatcher() {
-//   yield takeEvery(REQUEST_POSTS, sagaWorker)
-// }
+export function* userSagaWatcher() {
+  // console.log('userSagaWatcher');
+  
+  yield takeEvery(ALL_POSTS, sagaWorker)
+}
 
-// function* sagaWorker() {
-//   try {
-//     yield put(showLoader());
-//     const payload = yield call(fetchPosts);
-//     yield put({ type: FETCH_POST, payload });
-//     yield put(hideLoader());
-//   } catch (e) {
-//     yield put(showAlert('Something going wrong'));
-//     yield put(hideLoader());
-//   }
-// }
+function* sagaWorker() {
+  // console.log('sagaWorker');
 
-// async function fetchPosts() {
-//   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-//   return await response.json();
-// }
+  try {
+    yield put(showLoader());
+    const payload = yield call(fetchPosts);
+    yield put({ type: ALL_POSTS, payload });
+    yield put(hideLoader());
+  } catch (e) {
+    yield put(showAlert('Something going wrong'));
+    yield put(hideLoader());
+  }
+}
 
-// // export function* rootSaga () {
-// //   yield [
-// //       fork(sagaWatcher), // saga1 can also yield [ fork(actionOne), fork(actionTwo) ]
-// //   ];
-// // }
+async function fetchPosts() {
+  // console.log('fetchPosts');
+
+  const response = await fetch('https://intim-vibe-api.padilo.pro/api/posts');
+  return await console.log(response.json());
+}

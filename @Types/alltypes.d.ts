@@ -5,3 +5,4 @@ declare module 'next-images';
 declare module 'next-pwa';
 declare module '@zeit/next-sass';
 declare module 'jquery';
+declare module 'cors';

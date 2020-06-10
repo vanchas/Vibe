@@ -11,7 +11,7 @@ import m4h from '../../assets/images/main/horizontal/model-4.png'
 import m1h from '../../assets/images/main/horizontal/model-1.png'
 import m2h from '../../assets/images/main/horizontal/model-2.png'
 
-export default function EscortContent() {
+export default function EscortContent(props) {
   const [visibleComponent, setVisibleComponent] = useState('list');
   const [sex, setSex] = useState('');
   const [ageFrom, setAgeFrom] = useState(0);
@@ -99,3 +99,5 @@ export default function EscortContent() {
     </section>
   )
 }
+
+
