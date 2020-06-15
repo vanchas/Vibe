@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\n  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\n  return {};\n};","map":null,"metadata":{},"sourceType":"module"}

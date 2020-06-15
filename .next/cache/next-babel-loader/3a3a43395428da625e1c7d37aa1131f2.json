@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from 'redux';\nimport { reducer } from './reducer';\nvar rootReducer = combineReducers({\n  reducer: reducer\n});\nexport default rootReducer;","map":null,"metadata":{},"sourceType":"module"}

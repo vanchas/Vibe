@@ -45,6 +45,9 @@
 .add_post_btn {
 	font-family: 'Audiowide', cursive;
 	justify-self: end;
+	span {
+		white-space: nowrap;
+	}
 	&:hover {
 		transition: 0.2s;
 		font-weight: 700;

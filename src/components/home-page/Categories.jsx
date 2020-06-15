@@ -9,10 +9,6 @@ export default function Categories({ categories }) {
     setFilterCategory(category);
   };
 
-  // useEffect(() => {
-  //   console.log(categories);
-  // }, []);
-
   return (
     <section className={s.categories_block}>
       <div className={`text-white ${s.categories_title}`}>
@@ -20,10 +16,17 @@ export default function Categories({ categories }) {
       </div>
       <div className={s.categories_content}>
         <div className={`${s.categories_control}`}>
-          {(categories && categories.length) ? categories.map((c, i) => (
-            <span key={i}
-              onClick={e => changeCategory(c.name.toLowerCase())} className={`${s.category} ${filterCategory === c.name.toLowerCase() ? 'active_btn_blue' : ''}`}>{c.name.toUpperCase()}</span>
-          )) : null}
+          {(categories && categories.length)
+            ? categories.map((c, i) => (
+              <span key={i}
+                onClick={e => changeCategory(c.name.toLowerCase())} className={`${s.category} ${filterCategory === c.name.toLowerCase() ? 'active_btn_blue' : ''}`}>{c.name.toUpperCase()}</span>
+            ))
+            : <><div className="spinner-border text-info" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+            <span className="pl-2 text-info">No categories from server...</span>
+            </>}
+
         </div>
         <div className={`text-white ${s.categories_subtitle}`}>
           <p>NEW ON THE SITE</p>

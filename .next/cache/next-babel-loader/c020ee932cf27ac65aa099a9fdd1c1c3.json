@@ -1,0 +1,1 @@
+{"ast":null,"code":"export function* sagaWatcher() {\n  return;\n}","map":{"version":3,"sources":["C:/Users/user/projects/vibe/src/redux/sagas.js"],"names":["sagaWatcher"],"mappings":"AACA,OAAO,UAAUA,WAAV,GAAwB;AAC7B;AACD","sourcesContent":["\r\nexport function* sagaWatcher() {\r\n  return\r\n}"]},"metadata":{},"sourceType":"module"}

@@ -43,8 +43,7 @@ export const getCategories = () => async (dispatch: any) => {
     const response = await fetch('https://intim-vibe-api.padilo.pro/api/categories');
     const promise = response.json();
     promise.then(res => {
-      dispatch({ type: GET_CATEGORIES, payload: res.data });
-      console.log('categories from action:', res.data);
+        // console.log('categories from action:', res.data);
+        return { type: GET_CATEGORIES, payload: res.data };
     });
-    return response;
-  }
+}

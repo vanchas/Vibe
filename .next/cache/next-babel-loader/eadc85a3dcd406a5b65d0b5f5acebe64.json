@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var Role = {\n  Admin: 'Admin',\n  User: 'User'\n};","map":null,"metadata":{},"sourceType":"module"}

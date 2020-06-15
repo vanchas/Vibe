@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createBrowserHistory } from 'history';\nvar history;\n\nif (typeof document !== 'undefined') {\n  // const createBrowserHistory = require('history/createBrowserHistory').default\n  history = createBrowserHistory();\n}\n\nexport { history };","map":null,"metadata":{},"sourceType":"module"}

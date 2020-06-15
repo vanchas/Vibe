@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nexport default function Alert(_ref) {\n  var text = _ref.text;\n  return __jsx(\"div\", {\n    className: \"alert alert-warning\",\n    role: \"alert\"\n  }, text);\n}","map":null,"metadata":{},"sourceType":"module"}

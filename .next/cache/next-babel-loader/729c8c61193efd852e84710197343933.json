@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { all } from 'redux-saga/effects';\nimport { sagaWatcher } from './testSagas';\nimport { userSagaWatcher } from './userSagas';\nexport function* rootSaga() {\n  yield all([sagaWatcher(), userSagaWatcher()]);\n}","map":null,"metadata":{},"sourceType":"module"}

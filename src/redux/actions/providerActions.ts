@@ -1,5 +1,6 @@
 import { ADD_POST, ProviderPost, UPDATE_POST, REMOVE_POST, GET_ALL_POSTS } from "./types"
-import fetch from 'isomorphic-unfetch'
+// import fetch from 'isomorphic-unfetch'
+// import { useRouter } from "next/router"
 
 export function getAllProviderPost(): any {
   return {
@@ -7,16 +8,16 @@ export function getAllProviderPost(): any {
   }
 };
 export async function addProviderPost(post: any): Promise<any> {
-  await fetch('https://intim-vibe-api.padilo.pro/api/posts/create', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
-    },
-    body: JSON.stringify({ post })
-  })
-    .then(res => console.log(res))
-    .catch(err => console.log('Error:', err))
+  // await fetch('https://intim-vibe-api.padilo.pro/api/posts/create', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Access-Control-Allow-Origin': '*'
+  //   },
+  //   body: JSON.stringify({ post })
+  // })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log('Error:', err))
 
   return {
     type: ADD_POST

@@ -3,6 +3,7 @@ import s from "./add-post.module.scss";
 import Alert from "../test/Alert";
 import { showAlert } from "../../redux/actions/actions";
 import { addProviderPost } from '../../redux/actions/providerActions';
+// import Router from 'next/router'
 
 export default class AddPostFrom extends Component {
 	constructor(props) {
@@ -37,6 +38,7 @@ export default class AddPostFrom extends Component {
 
 	submitHandler = e => {
 		e.preventDefault();
+		// Router.push('/api/provider/post');
 		// (this.state.gender.length && +this.state.age >= 18 && this.state.ethnicity.length && this.state.hair_color.length && this.state.eye_color.length && this.state.height.toString().length && this.state.affiliation.length && this.state.number.toString().length > 9 && this.state.number.toString().length < 12 && this.state.email.length && this.state.model_name.length && this.state.video_link.length && this.state.about.length && this.state.available_to.length && this.state.availability.length && this.state.summary.length && this.state.second_name.length && this.state.account_name.length && this.state.category.length) ?
 		addProviderPost({
 			gender: 'female',

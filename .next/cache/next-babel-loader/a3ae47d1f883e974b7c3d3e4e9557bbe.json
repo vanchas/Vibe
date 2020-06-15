@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport AdminRegistration from '../components/admin/AdminRegistration';\nexport default function Admin() {\n  return __jsx(\"div\", null, __jsx(AdminRegistration, null));\n}","map":null,"metadata":{},"sourceType":"module"}

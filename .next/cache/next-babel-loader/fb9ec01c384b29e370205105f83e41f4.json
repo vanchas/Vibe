@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nimport m from \"../../assets/images/main/model-profile/model-2.png\";\nexport default function ProfileVideo() {\n  return __jsx(\"div\", null, __jsx(\"img\", {\n    src: m,\n    alt: \"\",\n    className: \"w-100\"\n  }));\n}","map":null,"metadata":{},"sourceType":"module"}
