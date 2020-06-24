@@ -1,10 +1,11 @@
 import React from "react";
-import m from "../../assets/images/main/model-profile/model-2.png";
 
-export default function ProfileVideo() {
+export default function ProfileVideo({ videoLink }) {
   return (
     <div>
-      <img src={m} alt="" className="w-100" />
+      <iframe width="420" height="315" className="w-100"
+        src={videoLink}>
+      </iframe>
     </div>
   );
 }

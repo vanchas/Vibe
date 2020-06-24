@@ -1,10 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import s from './support.module.scss'
 import $ from 'jquery'
 
-export default function Support() {
+export default function Support({ tasks, createSupportTask, getAllUsersTasks }) {
     const [showText, setShowText] = useState(false);
-    const [supportMessages] = useState([1, 2, 3, 4]);
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        getAllUsersTasks();
+    }, []);
+
+    const openTaskText = id => {
+        !showText ?
+            $(`.show-${id}`).css({
+                whiteSpace: 'normal',
+                overflow: 'visible',
+            }) : $(`.show-${id}`).css({
+                whiteSpace: 'nowrap',
+                overflow: 'hidden'
+            });
+        setShowText(!showText);
+    }
+
+    const createTask = () => {
+        if (subject.length > 2 && subject.length < 51 && message.length) {
+            createSupportTask({ subject, message });
+            setSubject('');
+            setMessage('');
+        }
+    }
 
     return (
         <div className={s.support}>
@@ -13,10 +38,10 @@ export default function Support() {
                     CREATE NEW TASK
                 </div>
                 <div className={s.task_body}>
-                    <input type="text" placeholder="Theme" className={`form-control`} />
-                    <textarea className={`form-control`} rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis."></textarea>
+                    <input type="text" placeholder="Theme" className={`form-control`} onChange={e => setSubject(e.target.value)} />
+                    <textarea className={`form-control`} rows="3" onChange={e => setMessage(e.target.value)} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis."></textarea>
                     <div className={s.send_btn}>
-                        <span>SEND</span>
+                        <span onClick={createTask}>SEND</span>
                     </div>
                 </div>
             </div>
@@ -25,20 +50,21 @@ export default function Support() {
                 <span>HISTORY</span>
             </div>
 
-            {supportMessages.map((item, i) => {
+            {tasks && tasks.length ? tasks.map((task, i) => {
                 return <div key={i} className={s.history_item}>
                     <div className={`${s.task_body}`}>
-                        <div className={`text-white`}>Theme</div>
-                        <div className={`text-white text-of-support-message ${s.text_of_support_message} ${showText && s.show}`} >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis."
+                        <div className={`text-white`}>{task.subject}</div>
+                        <div className={`text-white ${s.text_of_support_message} show-${task.id}`} >
+                            <p>{task.message}</p>
+                            {task.answer && <p>{task.answer}</p>}
                         </div>
                         <div className={s.send_btn}>
-                            <span onClick={e => setShowText(!showText)}>{!showText ? 'READ MORE' : 'HIDE'}
+                            <span onClick={e => openTaskText(task.id)}>{!showText ? 'READ MORE' : 'HIDE'}
                             </span>
                         </div>
                     </div>
                 </div>
-            })}
+            }) : <div className="h1 text-info text-center py-5 ">No tasks...</div>}
         </div>
     )
 }

@@ -1,5 +1,9 @@
 // https://intim-vibe-api.padilo.pro/api/
 
+/filter - POST, поля (from, to, gender, ethnicity_id, hair_id, eye_id, category_id, affiliation_id, availability_ids(array), availableto_ids(array))
+/posts/filter/state/{stateId} - POST - те же поля, только + stateId в заголовке роута
+/posts/filter/city/{cityId} - POST - те же поля, только + cityId в заголовке роута
+
 // Admin:
 // admin / register - POST,
 //     поля:
@@ -124,6 +128,11 @@
 // Категории: можно без авторизации
 // categories - GET, получение всех категорий, 200
 // categories / { id } - GET, отображение одной категории, 200
+
+/ - GET, все штаты
+/cities/{stateId} - GET, все города по штату
+/posts/s/{stateId} - GET, все посты по штату
+/posts/c/{cityId} - GET, все посты по городу
 
 // Посты:
 // можно без авторизации:

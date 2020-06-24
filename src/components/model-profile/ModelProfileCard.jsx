@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import s from "./profile.module.scss";
 import ProfileCarousel from "./ProfileCarousel";
 import ProfileVideo from "./ProfileVideo";
@@ -8,127 +8,145 @@ import star from "../../assets/images/main/signs/star-pink.png";
 import plane from "../../assets/images/main/signs/plane-pink.png";
 import ReportFakePhotosModalWindow from "./ReportFakePhotos";
 import ReportTraffickingModalWindow from "./ReportTrafficking";
+import { useRouter } from "next/router";
 
-export default function ModelProfileCard() {
+export default function postProfileCard({ posts, postComments, createPostComment }) {
+  const [commentText, setComment] = useState('');
+  const [post, setPost] = useState({});
+  const router = useRouter();
+
+  useEffect(() => {
+    for (let p of posts) {
+      if (p.id == router.query.id) {
+        setPost(p);
+      }
+    }
+  }, [posts]);
+
   return (
     <div className={s.profile}>
-      <div className={s.card}>
-        <div className={s.image_block}>
-          <div className={`${s.images_track}`}>
-            <ProfileCarousel />
-          </div>
-          <div>
-            <ProfileVideo />
-          </div>
-          <div className={s.report_btn_group}>
-            <ReportFakePhotosModalWindow buttonLabel={'Report Fake Photos'} className={``} />
-            <ReportTraffickingModalWindow buttonLabel={'Report Trafficking'} className={``} />
-          </div>
-          <div className={`${s.favorite_btn} text-white`}>
-            Add to favourites
-          </div>
-        </div>
-        <div className={`text-white ${s.content_block}`}>
-          <div className={s.content_block_header}>
-            <h5>Model Name</h5>
-            <span>Online</span>
+      {post.category ? <>
+        <div className={s.card}>
+          <div className={s.image_block}>
+            <div className={`${s.images_track}`}>
+              <ProfileCarousel photo={[post.photo_horizontal, post.photo_vertical]} />
+            </div>
             <div>
-              <img src={fav} alt="" />
-              <img src={crown} alt="" />
-              <img src={star} alt="" />
-              <img src={plane} alt="" />
+              <ProfileVideo videoLink={post.video_link} />
             </div>
-          </div>
-          <div className={s.content_block_description}>
-            <h6>Optional text</h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
-            </p>
-          </div>
-          <div className={s.contacts_blue_block}>
-            <div>VERIFIED VIP OTHER</div>
-            <div>
-              <a href="mailto:mail@address.com">mail@address.com</a>
-              <a href="tel:+1234567890">+ 123 45 67 890</a>
+            <div className={s.report_btn_group}>
+              <ReportFakePhotosModalWindow buttonLabel={'Report Fake Photos'} className={``} />
+              <ReportTraffickingModalWindow buttonLabel={'Report Trafficking'} className={``} />
             </div>
+            <div className={`${s.favorite_btn} text-white`}>
+              Add to favourites
           </div>
-          <div className={s.main_content_block}>
-            <div className={s.text_block}>
-              <div className={s.text_block_title}>About</div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Quis ipsum
-                suspendisse ultrices gravida. Risus commodo viverra maecenas
-                accumsan lacus vel facilisis.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-            <div className={s.details_block}>
-              <div className="mb-1">DETAILS</div>
+          </div>
+          <div className={`text-white ${s.content_block}`}>
+            <div className={s.content_block_header}>
+              <h5>{post.first_name} {post.second_name}</h5>
+              <span>{post.status}</span>
               <div>
-                <dl>
-                  <dt>Gender:</dt>
-                  <dd>Female</dd>
-                  <dt>Age:</dt>
-                  <dd>26</dd>
-                  <dt>Ethnicity:</dt>
-                  <dd>Asian</dd>
-                  <dt>Hair Color:</dt>
-                  <dd>Blonde</dd>
-                  <dt>Eye Color:</dt>
-                  <dd>Brown</dd>
-                  <dt>Height:</dt>
-                  <dd>5'2"</dd>
-                  <dt>Affiliation:</dt>
-                  <dd>Independent</dd>
-                  <dt>Available To:</dt>
-                  <dd>Couples, Men</dd>
-                  <dl>Availability:</dl>
-                  <dd>Incall / Outcall</dd>
-                </dl>
+                <img src={fav} alt="" />
+                <img src={crown} alt="" />
+                <img src={star} alt="" />
+                <img src={plane} alt="" />
               </div>
-              <div>CONTACT DETAILS</div>
-              <a href="tel:+1234567890">+ 123 45 67 890</a>
-              <a href="mailto:mail@address.com">mail@address.com</a>
+            </div>
+            <div className={s.content_block_description}>
+              <h6>Summary</h6>
+              <p>{post.summary}</p>
+            </div>
+            <div className={s.contacts_blue_block}>
+              <div>{post.is_verify ? 'VERIFIED VIP OTHER' : null}</div>
+              <div>
+                {post.email ?
+                  <a href={`mailto:${post.email}`}>
+                    {post.email}</a>
+                  : 'No access to see email...'}
+                {post.number ?
+                  <a href={`tel:+${post.number}`}>
+                    +{post.number}</a>
+                  : 'No access to see number...'}
+              </div>
+            </div>
+            <div className={s.main_content_block}>
+              <div className={s.text_block}>
+                <div className={s.text_block_title}>About</div>
+                <p>{post.about}</p>
+              </div>
+              <div className={s.details_block}>
+                <div className="mb-1">DETAILS</div>
+                <div>
+                  <dl>
+                    <dt>Category:</dt>
+                    <dd>{post.category.name}</dd>
+                    <dt>Gender:</dt>
+                    <dd>{post.gender}</dd>
+                    <dt>Age:</dt>
+                    <dd>{post.age}</dd>
+                    <dt>Ethnicity:</dt>
+                    <dd>{post.ethnicity.value}</dd>
+                    <dt>Hair Color:</dt>
+                    <dd>{post.hair.value}</dd>
+                    <dt>Eye Color:</dt>
+                    <dd>{post.eye.value}</dd>
+                    <dt>Height:</dt>
+                    <dd>{post.height}</dd>
+                    <dt>Affiliation:</dt>
+                    <dd>{post.affiliation.value}</dd>
+                    <dt>Available To:</dt>
+                    <dd>{post.availableto.map(a => a.value + ' ')}</dd>
+                    <dl>Availability:</dl>
+                    <dd>{post.availability.map(a => a.value + ' ')}</dd>
+                  </dl>
+                </div>
+                <div>CONTACT DETAILS</div>
+                {post.number ?
+                  <a href={`tel:+${post.number}`}>
+                    +{post.number}</a>
+                  : 'No access to see number...'}
+                {post.email ?
+                  <a href={`mailto:${post.email}`}>
+                    {post.email}</a>
+                  : 'No access to see email...'}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className={s.add_comment_block}>
-        <div className="text-white">LEAVE A COMMENT</div>
-        <textarea rows="8"></textarea>
-      </div>
-
-      <div className={s.comments_block}>
-        <div className={`${s.comments_block_title} text-white`}>COMMENTS</div>
-        <div className={s.comment}>
-          <div className={s.comment_title}>
-            <span>USERNAME</span>
-            <span>22.07.19</span>
+        {postComments && postComments.length ? <>
+          <div className={s.add_comment_block}>
+            <div className="text-white"
+              onClick={() => {
+                if (commentText.length) {
+                  createPostComment(router.query.id, commentText);
+                }
+              }}>
+              LEAVE A COMMENT</div>
+            <textarea onChange={e => setComment(e.target.value)} rows="8"></textarea>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-            ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-            accumsan lacus vel facilisis.
-          </p>
-        </div>
-      </div>
+
+          <div className={s.comments_block}>
+            <div className={`${s.comments_block_title} text-white`}>COMMENTS</div>
+            <ul className="list-group p-0">
+              {postComments.map((c, i) => (
+                <li key={i} className={s.comment}>
+                  <div className={s.comment_title}>
+                    <span>{c.user.id}</span>
+                    <span>{c.created_at}</span>
+                  </div>
+                  <p>{c.comment}</p>
+                </li>
+              ))}
+            </ul>
+          </div> </> : null}
+
+      </> : <div className="text-center py-5">
+          <div className="spinner-border text-info" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>}
     </div>
   );
 }

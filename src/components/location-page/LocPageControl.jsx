@@ -3,32 +3,7 @@ import s from "./control.module.scss";
 import ModelsFilter from '../models-filter/ModelsFilter'
 import $ from 'jquery';
 
-export default function LocPageControl() {
-  const [cities, setCities] = useState([
-    'South', 'Corning',
-    'Cayuga Heights',
-    'Fairport',
-    'Orchard Park',
-    'Pittsford',
-    'Williamsville',
-    'Tonawanda',
-    'Youngstown',
-    'Plandome',
-    'East Aurora',
-    'East Ithaca',
-    'Harris Hill',
-    'Skaneateles',
-    'Manlius',
-    'West Seneca',
-    'Dering Harbor',
-    'Flower Hill',
-    'Billington Heights',
-    'Chappaqua',
-    'Rye',
-    'Fayetteville',
-    'SUNY Oswego',
-    'Chadwicks',
-    'Hamburg']);
+export default function LocPageControl({ cities }) {
   const [currentCity, setCurrentCity] = useState('Fairport');
   const [showCities, setShowCities] = useState(false);
   const [sex, setSex] = useState('');
@@ -82,9 +57,9 @@ export default function LocPageControl() {
         </div>
 
         <div className={`loc_cities_list ${s.loc_cities_list}`}>
-          <ul>{cities.map((c, i) => (
-            <li onClick={e => changeCity(c)} key={i} className={`${currentCity === c ? 'active_btn_blue' : ''} btn city-item`}><span>{c}</span></li>
-          ))}</ul>
+          {cities && cities.length ? <ul>{cities.map((c, i) => (
+            <li onClick={e => changeCity(c.name)} key={i} className={`${currentCity === c.name ? 'active_btn_blue' : ''} btn city-item`}><span>{c.name}</span></li>
+          ))}</ul> : <div className="text-center h1 text-info py-5">No cities ...</div>}
         </div>
 
         <div className={`${s.loc_page_filter_control}`}>

@@ -3,7 +3,6 @@ import PostForm from '../components/test/PostForm'
 import Posts from '../components/test/Posts'
 import FetchedPosts from '../components/test/FetchedPosts'
 import { connect } from 'react-redux';
-import { allPosts } from '../redux/actions/userActions';
 
 const Test = props => {
   return (
@@ -24,7 +23,6 @@ const Test = props => {
         </div>
       </div>
       <button onClick={() => {
-        allPosts();
       }}>posts</button>
     </div>
   )

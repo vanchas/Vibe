@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import fetch from 'isomorphic-unfetch'
 
-export default async function getAllPosts(req: NextApiRequest, res: NextApiResponse) {
-  // await fetch('https://jsonplaceholder.typicode.com/todos')
-  await fetch(`https://intim-vibe-api.padilo.pro/api/posts/create`, {
+export default async function handle(req: NextApiRequest, res: NextApiResponse): Promise<any> {
+  // return await fetch('https://jsonplaceholder.typicode.com/todos')
+  return await fetch(`https://intim-vibe-api.padilo.pro/api/posts/create`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

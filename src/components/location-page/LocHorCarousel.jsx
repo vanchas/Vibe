@@ -3,14 +3,13 @@ import Link from 'next/link';
 import Slider from "react-slick";
 import s from "./horizontal.module.scss";
 import m1 from "../../assets/images/main/location/model-1.png";
-import m2 from "../../assets/images/main/location/model-2.png";
 import fav from "../../assets/images/main/signs/favorite-yel.png";
 import crown from "../../assets/images/main/signs/crown-yel.png";
 import star from "../../assets/images/main/signs/star-yel.png";
 import plane from "../../assets/images/main/signs/plane-yel.png";
 
-export default function LocHorCarousel() {
-  var settings = {
+export default function LocHorCarousel({ posts }) {
+  const settings = {
     infinite: true,
     speed: 1000,
     slidesToShow: 2,
@@ -41,11 +40,13 @@ export default function LocHorCarousel() {
           maxWidth: "1260px",
           margin: "0 auto",
         }} >
-        {[m1, m2, m1, m2, m1, m2].map((m, i) => {
+        {posts.map((post, i) => {
+          // console.log(post)
+          
           return <div key={i}>
             <Link href="/modelProfile"><a>
               <div className={s.loc_hor_carousel_slide}>
-                <img src={m} alt="model" className="w-100" />
+                <img src={m1} alt="model" className="w-100" />
                 <div className={s.loc_slide_info}>
                   <div className={s.loc_slide_info_head}>
                     <h5 className="text-white">Model Name</h5>

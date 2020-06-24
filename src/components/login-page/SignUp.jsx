@@ -8,6 +8,7 @@ import { authenticationService } from '../../_services';
 export default function SignUp() {
   const router = useRouter();
   const [formUser, setFormUser] = useState(true);
+  const [isAgency, setIsAgency] = useState(false);
 
   return (
     <div className={s.login_page_form}>
@@ -18,7 +19,8 @@ export default function SignUp() {
           email: '',
           password: '',
           password_confirmation: '',
-          phone: ''
+          phone: '',
+          agency: ''
         }}
         validationSchema={Yup.object().shape(
           formUser
@@ -28,23 +30,41 @@ export default function SignUp() {
               email: Yup.string().required('Email is required'),
               password_confirmation: Yup.string().required('Password is required')
             }
-            : {
-              username: Yup.string().required('Username is required'),
-              password: Yup.string().required('Password is required'),
-              email: Yup.string().required('Email is required'),
-              password_confirmation: Yup.string().required('Password is required'),
-              phone: Yup.string().required('Phone is required and must contain 12 characters')
-            })}
-        onSubmit={({ username, email, password, password_confirmation, phone }, { setStatus, setSubmitting }) => {
+            : (!isAgency)
+              ? {
+                username: Yup.string().required('Username is required'),
+                password: Yup.string().required('Password is required'),
+                email: Yup.string().required('Email is required'),
+                password_confirmation: Yup.string().required('Password is required'),
+                phone: Yup.string().required('Phone is required and must contain 12 characters')
+              }
+              : {
+                username: Yup.string().required('Username is required'),
+                password: Yup.string().required('Password is required'),
+                email: Yup.string().required('Email is required'),
+                password_confirmation: Yup.string().required('Password is required'),
+                phone: Yup.string().required('Phone is required and must contain 12 characters'),
+                agency: Yup.string().required('Agency is required')
+              })}
+        onSubmit={({ username, email, password, password_confirmation, phone, agency }, { setStatus, setSubmitting }) => {
           setStatus();
-          phone.toString().length
-            ? authenticationService.registrationProvider(username, password, email, password_confirmation, phone)
-            : authenticationService.registrationClient(username, password, email, password_confirmation)
+          (phone.toString().length)
+            ? (!isAgency)
+              ? authenticationService.registrationProvider(
+                username, password, email,
+                password_confirmation, phone
+              )
+              : authenticationService.registrationAgency(
+                username, password, email,
+                password_confirmation, phone, agency
+              )
+            : authenticationService.registrationClient(
+              username, password, email, password_confirmation
+            )
               .then(
                 user => {
                   console.log('user:', user);
                   const { from } =
-                    // this.props.location.state ||
                     { from: { pathname: "/" } };
                   router.push(from);
                 },
@@ -63,6 +83,13 @@ export default function SignUp() {
                 <input type="checkbox" id="checkbox" onChange={() => setFormUser(!formUser)} />
                 <div className={`${s.slider} ${s.round}`} />
               </label>
+            </div>
+            <div className="form-group d-flex justify-content-end">
+              {!formUser
+                ? <label><span className="h4 mr-2">as Agency</span>
+                  <input type="checkbox" onChange={() => setIsAgency(!isAgency)} />
+                </label>
+                : null}
             </div>
             <div className="form-group">
               <label htmlFor="username">Username</label>
@@ -88,6 +115,11 @@ export default function SignUp() {
               <label htmlFor="phone">Phone</label>
               <Field name="phone" type="number" className={'form-control' + (errors.phone && touched.phone ? ' is-invalid' : '')} />
               <ErrorMessage name="phone" component="div" className="invalid-feedback" />
+            </div>}
+            {isAgency && <div className="form-group">
+              <label htmlFor="agency">Agency Name</label>
+              <Field name="agency" type="text" className={'form-control' + (errors.agency && touched.agency ? ' is-invalid' : '')} id="agency" />
+              <ErrorMessage name="agency" component="div" className="invalid-feedback" />
             </div>}
             <div className="form-group">
               <button type="submit" className={`btn ${s.submit_btn}`} disabled={isSubmitting}>Submit</button>

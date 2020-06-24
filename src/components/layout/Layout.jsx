@@ -1,6 +1,5 @@
 import Header from '../header/Header';
 import s from './layout.module.scss';
-import { connect } from 'react-redux';
 
 const Layout = ({ children }) => (
   <div className={s.layout}>

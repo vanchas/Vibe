@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import s from './categories.module.scss'
-import CategoriesCarousel from './CategoriesCarousel'
+import NewPosts from './NewPosts'
 
-export default function Categories({ categories }) {
+export default function Categories({ categories, newPosts, filterPosts }) {
   const [filterCategory, setFilterCategory] = useState('escorts');
 
-  const changeCategory = category => {
+  const changeCategory = (category, id) => {
     setFilterCategory(category);
+    filterPosts({'category_id': id});
   };
 
   return (
@@ -19,12 +20,12 @@ export default function Categories({ categories }) {
           {(categories && categories.length)
             ? categories.map((c, i) => (
               <span key={i}
-                onClick={e => changeCategory(c.name.toLowerCase())} className={`${s.category} ${filterCategory === c.name.toLowerCase() ? 'active_btn_blue' : ''}`}>{c.name.toUpperCase()}</span>
+                onClick={e => changeCategory(c.name.toLowerCase(), c.id)} className={`${s.category} ${filterCategory === c.name.toLowerCase() ? 'active_btn_blue' : ''}`}>{c.name.toUpperCase()}</span>
             ))
             : <><div className="spinner-border text-info" role="status">
               <span className="sr-only">Loading...</span>
             </div>
-            <span className="pl-2 text-info">No categories from server...</span>
+              <span className="pl-2 text-info">No categories from server...</span>
             </>}
 
         </div>
@@ -32,7 +33,7 @@ export default function Categories({ categories }) {
           <p>NEW ON THE SITE</p>
         </div>
         <div className={s.categories_carousel}>
-          <CategoriesCarousel />
+          <NewPosts newPosts={newPosts} />
         </div>
       </div>
     </section>

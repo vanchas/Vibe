@@ -7,8 +7,10 @@ import Prices from "../components/model-cabinet/Prices";
 import Balance from "../components/model-cabinet/Balance";
 import Customize from "../components/model-cabinet/Customize";
 import Support from "../components/support/Support";
+import { connect } from "react-redux";
+import { createSupportTask, getAllUsersTasks } from '../redux/actions/actions';
 
-export default function ModelCabinet() {
+function ModelCabinet({ supportTasks, createSupportTask, getAllUsersTasks }) {
   const [component, setComponent] = useState(<Ads />);
 
   const changeComponent = (comp) => {
@@ -25,7 +27,7 @@ export default function ModelCabinet() {
     } else if (comp === "customize") {
       setComponent(<Customize />);
     } else if (comp === "support") {
-      setComponent(<Support />);
+      setComponent(<Support tasks={supportTasks} createSupportTask={createSupportTask} getAllUsersTasks={getAllUsersTasks} />);
     }
   };
 
@@ -36,3 +38,13 @@ export default function ModelCabinet() {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  supportTasks: state.app.supportTasks
+})
+
+const mapDispatchToProps = {
+  createSupportTask, getAllUsersTasks
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModelCabinet);

@@ -34,13 +34,16 @@
 		padding: 0 0 2em 0;
 	}
 }
-.add_post_block_info_text {
+.add_post_block_form {
 	padding: 2em 0 1em 10%;
   display: grid;
   label {
     display: grid;
     grid-template-columns: 10em auto;
-  }
+	}
+	legend {
+		font-size: 1em;
+	}
   .save_btn {
     padding: .3em 3em .2em 3em;
     margin: 1em auto;
