@@ -9,7 +9,7 @@ import VerifiedWindow from "../modal-window/VerifiedWindow";
 
 import model from "../../assets/images/main/horizontal/model-1.png";
 
-export default function EscortGrid({ posts, pagesNumber, selectPostsPage }) {
+export default function EscortGrid({ posts, pagesNumber, selectPostsPage, addToFavorites }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1]);
 
@@ -60,7 +60,10 @@ export default function EscortGrid({ posts, pagesNumber, selectPostsPage }) {
                       </div>
                       <div className={s.card_control}>
                         <div>
-                          <img src={fav} alt="" />
+                          <img src={fav} alt="" onClick={(e) => {
+                            e.preventDefault();
+                            addToFavorites(post.id);
+                          }} />
                         </div>
                         <div>
                           <img src={crown} alt="" />

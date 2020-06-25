@@ -9,7 +9,7 @@ import crown from '../../assets/images/main/signs/crown-pink.png'
 
 import model from '../../assets/images/main/horizontal/model-1.png'
 
-export default function EscortList({ posts, pagesNumber, selectPostsPage }) {
+export default function EscortList({ posts, pagesNumber, selectPostsPage, addToFavorites }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1]);
 
@@ -67,7 +67,7 @@ export default function EscortList({ posts, pagesNumber, selectPostsPage }) {
         <ul className={`${s.escort_list}`}>
           {posts.map((post, i) => {
             return <li key={i} className={s.slide}>
-              <Link href={{pathname: "/modelProfile", query: {id: post.id}}}><a>
+              <Link href={{ pathname: "/modelProfile", query: { id: post.id } }}><a>
                 <div className={s.model_photo}>
                   <img src={post.photo_vertical} alt={post.model_name} />
                 </div>
@@ -78,7 +78,10 @@ export default function EscortList({ posts, pagesNumber, selectPostsPage }) {
                   </div>
                   <div className={s.signs_group}>
                     <div className={s.sign}>
-                      <img src={fav} alt="model" />
+                      <img src={fav} alt="model" onClick={(e) => {
+                        e.preventDefault();
+                        addToFavorites(post.id);
+                      }} />
                     </div>
                     <div className={s.sign}>
                       <img src={crown} alt="model" />

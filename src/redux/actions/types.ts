@@ -19,6 +19,10 @@ export const GET_APP_INFO = 'GET_APP_INFO';
 export const GET_POST_COMMENTS = 'GET_POST_COMMENTS';
 export const CREATE_POST_COMMENT = 'CREATE_POST_COMMENT';
 export const FILTER_POSTS = 'FILTER_POSTS';
+export const REPORT_POST = 'REPORT_POST';
+export const GET_FAVORITES = 'GET_FAVORITES';
+export const GET_COMPLAINS = 'GET_GET_COMPLAINS';
+export const SORT_POSTS = 'SORT_POSTS';
 
 // provider
 export const ADD_POST = 'PROVIDER/ADD_POST';

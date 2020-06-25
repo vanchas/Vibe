@@ -4,11 +4,12 @@ import s from "./location.module.scss";
 import Link from "next/link";
 import $ from 'jquery';
 
-export default function Location({ states }) {
+export default function Location({ states, getCities }) {
   const [currentLocation, setCurrentLocation] = useState('');
   const router = useRouter();
 
   const changeLocation = stateId => {
+    getCities(stateId);
     setCurrentLocation(stateId);
     states.forEach(state => {
       if (+state.id === +stateId) {

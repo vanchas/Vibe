@@ -8,7 +8,8 @@ export default function ModelsFilter({
   affiliation,
   eyes,
   hair,
-  filterPosts
+  filterPosts,
+  slideFilter
 }) {
   const [sex, setSex] = useState(['gender', '']);
   const [ageFrom, setAgeFrom] = useState(['ageFrom', 0]);
@@ -32,6 +33,7 @@ export default function ModelsFilter({
       res();
     }).then(() => {
       filterPosts(filterItems);
+      slideFilter();
     }).catch(err => console.error('Error: ', err));
   }
 
@@ -45,7 +47,7 @@ export default function ModelsFilter({
             value="female"
             type="radio"
             name="sex"
-            onChange={(e) => setSex(e.target.value)}
+            onChange={(e) => setSex(['gender', e.target.value])}
           />
           <span className={s.checkmark}></span>
 					Female
@@ -56,7 +58,7 @@ export default function ModelsFilter({
             value="male"
             type="radio"
             name="sex"
-            onChange={(e) => setSex(e.target.value)}
+            onChange={(e) => setSex(['gender', e.target.value])}
           />
           <span className={s.checkmark}></span>
 					Male

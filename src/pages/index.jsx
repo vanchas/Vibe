@@ -10,6 +10,8 @@ import {
 	getNewPosts,
 	selectPostsPage,
 	filterPosts,
+	addToFavorites,
+	sortPosts
 } from "../redux/actions/actions";
 
 function Home({
@@ -28,7 +30,9 @@ function Home({
 	ethnicity,
 	eyes,
 	hair,
-	affiliation
+	affiliation,
+	addToFavorites,
+	sortPosts
 }) {
 	useEffect(() => {
 		getAllPosts();
@@ -56,6 +60,8 @@ function Home({
 				hair={hair}
 				affiliation={affiliation}
 				filterPosts={filterPosts}
+				addToFavorites={addToFavorites}
+				sortPosts={sortPosts}
 			/>
 		</div>
 	);
@@ -84,6 +90,8 @@ const mapDispatchToPops = {
 	getNewPosts,
 	selectPostsPage,
 	filterPosts,
+	addToFavorites,
+	sortPosts
 };
 
 export default connect(mapStateToProps, mapDispatchToPops)(Home);

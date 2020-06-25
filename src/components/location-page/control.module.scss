@@ -123,9 +123,8 @@
 	ul {
 		padding: 1em;
 		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
 		li {
 			color: #fff;
 			font-size: 1.1em;
@@ -134,6 +133,12 @@
 			&:hover {
 				color: #00e8ff;
 			}
+		}
+		@media screen and (max-width: 1024px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media screen and (max-width: 1024px) {
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 }

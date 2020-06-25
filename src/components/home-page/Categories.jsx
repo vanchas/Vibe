@@ -3,7 +3,7 @@ import s from './categories.module.scss'
 import NewPosts from './NewPosts'
 
 export default function Categories({ categories, newPosts, filterPosts }) {
-  const [filterCategory, setFilterCategory] = useState('escorts');
+  const [filterCategory, setFilterCategory] = useState('');
 
   const changeCategory = (category, id) => {
     setFilterCategory(category);

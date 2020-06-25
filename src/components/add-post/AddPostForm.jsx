@@ -293,6 +293,7 @@ export default class AddPostFrom extends Component {
 									className="form-control dropdown"
 									onChange={(e) => this.setState({ hair_id: e.target.value })}
 								>
+									<option value="default" hidden>-- select hair color --</option>
 									{this.props.hair.map((h) => (
 										<option key={h.id} value={h.id}>
 											{h.value}
@@ -307,6 +308,7 @@ export default class AddPostFrom extends Component {
 									className="form-control dropdown"
 									onChange={(e) => this.setState({ eye_id: e.target.value })}
 								>
+									<option value="default" hidden>-- select eyes color --</option>
 									{this.props.eyes.map((eye) => (
 										<option key={eye.id} value={eye.id}>
 											{eye.value}
@@ -333,6 +335,7 @@ export default class AddPostFrom extends Component {
 										this.setState({ affiliation_id: e.target.value })
 									}
 								>
+									<option value="default" hidden>-- select affiliation color --</option>
 									{this.props.affiliation.map((a) => (
 										<option key={a.id} value={a.id}>
 											{a.value}

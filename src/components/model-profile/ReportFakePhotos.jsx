@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import s from "./profile.module.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import Alert from '../test/Alert';
 
 const ReportFakePhotosModalWindow = (props) => {
   const {
@@ -9,8 +10,18 @@ const ReportFakePhotosModalWindow = (props) => {
     className
   } = props;
   const [modal, setModal] = useState(false);
+  const [link, setLink] = useState('');
 
   const toggle = () => setModal(!modal);
+
+  const reportHandler = () => {
+    if (link.trim().length) {
+      props.reportPost(props.postId, link);
+      toggle();
+    } else {
+      props.showAlert('Link cannot be empty');
+    }
+  }
 
   return (
     <div>
@@ -28,12 +39,13 @@ const ReportFakePhotosModalWindow = (props) => {
           <FormGroup>
             <Label className="w-100 d-block">
               Link for Evidence of Misuse:
-              <Input type="text" onChange={() => { }} className="w-100 d-block bg-dark text-white boredr border-secondary" placeholder="http://..." />
+              <Input type="url" onChange={e => setLink(e.target.value)} className="w-100 d-block bg-dark text-white boredr border-secondary" placeholder="http://..." />
             </Label>
           </FormGroup>
         </Form>
         <ModalFooter className="bg-dark text-white border-top border-secondary">
-          <Button color="info" onClick={toggle}>SEND REPORT</Button>{' '}
+          {props.alert && <Alert text={props.alert} />}
+          <Button color="info" onClick={reportHandler}>SEND REPORT</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>

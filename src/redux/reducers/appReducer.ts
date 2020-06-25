@@ -1,4 +1,5 @@
-import { SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS } from "../actions/types";
+import { SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS, GET_FAVORITES, GET_COMPLAINS, SORT_POSTS } from "../actions/types";
+import moment from 'moment'
 
 const initialState = {
   postComments: [],
@@ -9,11 +10,7 @@ const initialState = {
   newPosts: [],
   states: [],
   cities: [],
-  supportTasks: [
-    { subject: 'Task 1 Subject', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.', id: 1 },
-    { subject: 'Task 2 Subject', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.', id: 2 },
-    { subject: 'Task 3 Subject', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.', id: 3 }
-  ],
+  supportTasks: [],
   affiliation: [],
   availability: [],
   available_to: [],
@@ -21,6 +18,8 @@ const initialState = {
   eyes: [],
   hair: [],
   pagesNumber: 0,
+  favorites: [],
+  complains: []
 };
 
 export const appReducer = (state: any = initialState, action: any) => {
@@ -40,6 +39,21 @@ export const appReducer = (state: any = initialState, action: any) => {
     case GET_ALL_POSTS:
       return { ...state, posts: action.payload }
 
+    case SORT_POSTS:
+      let newPosts = state.posts;
+      if (action.payload === 'date/-') {
+        newPosts.sort((a: any, b: any) => {
+          const dateA = new Date(a.created_at.split('T')[0].split('-').join('/'));
+          const dateB = new Date(b.created_at.split('T')[0].split('-').join('/'));
+          if (dateA.getTime() < dateB.getTime()) {
+            return a - b;
+          } else if (dateA.getTime() > dateB.getTime()) {
+            return b - a;
+          } else return;
+        });
+      }
+      return { ...state, posts: newPosts }
+
     case FILTER_POSTS:
       return { ...state, posts: action.payload }
 
@@ -54,6 +68,12 @@ export const appReducer = (state: any = initialState, action: any) => {
 
     case GET_CITIES:
       return { ...state, cities: action.payload }
+
+    case GET_COMPLAINS:
+      return { ...state, complains: action.payload }
+
+    case GET_FAVORITES:
+      return { ...state, favorites: action.payload }
 
     case CREATE_SUPPORT_TASK:
       return { ...state, supportTasks: [...state.supportTasks, action.payload] }

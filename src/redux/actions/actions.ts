@@ -1,4 +1,4 @@
-import { TEST_CREATE_POST, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, TEST_REQUEST_POSTS, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS } from "./types"
+import { TEST_CREATE_POST, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, TEST_REQUEST_POSTS, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS, GET_FAVORITES, GET_COMPLAINS, SORT_POSTS } from "./types"
 import fetch from 'isomorphic-unfetch';
 import { authenticationService } from "../../_services";
 
@@ -40,7 +40,7 @@ export function fetchPosts(): any {
         type: TEST_REQUEST_POSTS
     }
 };
-export const getAllPosts = () => async (dispatch: any) => {
+export const getAllPosts = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts`);
     const promise = response.json();
     promise.then(res => {
@@ -48,21 +48,21 @@ export const getAllPosts = () => async (dispatch: any) => {
         dispatch({ type: GET_ALL_POSTS, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
-export const getNewPosts = () => async (dispatch: any) => {
+export const getNewPosts = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts/all/new`);
     const promise = response.json();
     promise.then(res => {
         return dispatch({ type: GET_NEW_POSTS, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
-export const getLocationsInfo = () => async (dispatch: any) => {
+export const getLocationsInfo = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/location`);
     const promise = response.json();
     promise.then(res => {
         return dispatch({ type: GET_LOCAITONS_INFO, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
-export const getAppInfo = () => async (dispatch: any) => {
+export const getAppInfo = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/info`);
     const promise = response.json();
     promise.then(res => {
@@ -76,7 +76,7 @@ export const getCities = (stateId: number | string) => async (dispatch: any) => 
         return dispatch({ type: GET_CITIES, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
-export const createSupportTask = (task: any) => async (dispatch: any) => {
+export const createSupportTask = (task: any) => async (dispatch: Function) => {
     const user = authenticationService.currentUserValue;
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/support/create`, {
         method: 'POST',
@@ -92,7 +92,7 @@ export const createSupportTask = (task: any) => async (dispatch: any) => {
         .catch(err => console.error('Error: ', err));
     return dispatch({ type: CREATE_SUPPORT_TASK, payload: task })
 }
-export const getAllUsersTasks = () => async (dispatch: any) => {
+export const getAllUsersTasks = () => async (dispatch: Function) => {
     const user = await authenticationService.currentUserValue;
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/support/${user.user.id}`, {
         method: 'GET',
@@ -107,16 +107,15 @@ export const getAllUsersTasks = () => async (dispatch: any) => {
         return dispatch({ type: GET_ALL_USER_TASKS, payload: res });
     }).catch(err => console.error('Error: ', err));
 }
-export const selectPostsPage = (page: number | string) => async (dispatch: any) => {
+export const selectPostsPage = (page: number | string) => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts?page=${page}`);
     const promise = response.json();
     promise.then(res => {
         dispatch({ type: GET_PAGES_NUMBER, payload: res.last_page });
         dispatch({ type: GET_ALL_POSTS, payload: res.data });
-    })
-
+    }).catch(err => console.error('Error: ', err));
 }
-export const getPostComments = (postId: number | string) => async (dispatch: any) => {
+export const getPostComments = (postId: number | string) => async (dispatch: Function) => {
     const user = await authenticationService.currentUserValue;
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts/${postId}/comments`, {
         method: 'GET',
@@ -129,9 +128,9 @@ export const getPostComments = (postId: number | string) => async (dispatch: any
     const promise = response.json();
     promise.then(res => {
         dispatch({ type: GET_POST_COMMENTS, payload: res.data });
-    });
+    }).catch(err => console.error('Error: ', err));;
 }
-export const createPostComment = (postId: number | string, comment: string) => async (dispatch: any) => {
+export const createPostComment = (postId: number | string, comment: string) => async (dispatch: Function) => {
     const user = await authenticationService.currentUserValue;
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts/${postId}/comments/create`, {
         method: 'POST',
@@ -145,9 +144,9 @@ export const createPostComment = (postId: number | string, comment: string) => a
     const promise = response.json();
     promise.then(res => {
         dispatch({ type: CREATE_POST_COMMENT, payload: res.data });
-    });
+    }).catch(err => console.error('Error: ', err));;
 }
-export const filterPosts = (filterItemsObject: any) => async (dispatch: any) => {
+export const filterPosts = (filterItemsObject: any) => async (dispatch: Function) => {
     // from, to, gender, ethnicity_id, hair_id, eye_id, category_id, affiliation_id, availability_ids(array), availableto_ids(array)
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/filter`, {
         method: 'POST',
@@ -161,5 +160,96 @@ export const filterPosts = (filterItemsObject: any) => async (dispatch: any) => 
     return promise.then(res => {
         dispatch({ type: GET_PAGES_NUMBER, payload: res.last_page });
         dispatch({ type: FILTER_POSTS, payload: res.data.data });
+    }).catch(err => console.error('Error: ', err));;
+}
+export const reportPost = (postId: number | string, message: string) => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    return await fetch(`https://intim-vibe-api.padilo.pro/api/${postId}/complaints/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        },
+        body: JSON.stringify({
+            message, status: 'In progress'
+        })
     });
+    // const promise = response.json();
+    // return promise.then(res => {
+    //     dispatch({ type: REPORT_POST });
+    // });
+}
+export const addToFavorites = (postId: number | string) => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    return await fetch(`https://intim-vibe-api.padilo.pro/api/posts/${postId}/favorites/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        },
+        body: JSON.stringify({
+            is_favorite: true
+        })
+    });
+}
+export const addToFavoritesBusiness = (postId: number | string) => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    return await fetch(`https://intim-vibe-api.padilo.pro/api/posts/${postId}/favorites_business/add`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        }
+    });
+}
+export const getFavoritesBusiness = () => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    const response = await fetch(`https://intim-vibe-api.padilo.pro/api/favorites_business/my`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        }
+    });
+    const promise = response.json();
+    return promise.then(res => {
+        return dispatch({ type: GET_FAVORITES, payload: res.data });
+    }).catch(err => console.error('Error: ', err));
+}
+export const getFavoritesUser = () => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    const response = await fetch(`https://intim-vibe-api.padilo.pro/api/favorites/my`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        }
+    });
+    const promise = response.json();
+    return promise.then(res => {
+        return dispatch({ type: GET_FAVORITES, payload: res.data });
+    }).catch(err => console.error('Error: ', err));
+}
+export const getComplains = (userId: number | string) => async (dispatch: Function) => {
+    const user = authenticationService.currentUserValue;
+    const response = await fetch(`https://intim-vibe-api.padilo.pro/api/posts/complaints/user/${userId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `${user.token_type} ${user.token}`
+        }
+    });
+    const promise = response.json();
+    return promise.then(res => {
+        return dispatch({ type: GET_COMPLAINS, payload: res.data });
+    }).catch(err => console.error('Error: ', err));
+}
+export const sortPosts = (sortType: string) => async (dispatch: Function) => {
+    return dispatch({ type: SORT_POSTS, payload: sortType })
 }

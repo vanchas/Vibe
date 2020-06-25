@@ -38,8 +38,8 @@ export default function Support({ tasks, createSupportTask, getAllUsersTasks }) 
                     CREATE NEW TASK
                 </div>
                 <div className={s.task_body}>
-                    <input type="text" placeholder="Theme" className={`form-control`} onChange={e => setSubject(e.target.value)} />
-                    <textarea className={`form-control`} rows="3" onChange={e => setMessage(e.target.value)} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis."></textarea>
+                    <input type="text" placeholder="Theme" className={`form-control`} onChange={e => setSubject(e.target.value)} value={subject} />
+                    <textarea value={message} className={`form-control`} rows="3" onChange={e => setMessage(e.target.value)} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis."></textarea>
                     <div className={s.send_btn}>
                         <span onClick={createTask}>SEND</span>
                     </div>
@@ -50,7 +50,7 @@ export default function Support({ tasks, createSupportTask, getAllUsersTasks }) 
                 <span>HISTORY</span>
             </div>
 
-            {tasks && tasks.length ? tasks.map((task, i) => {
+            {tasks.length ? tasks.map((task, i) => {
                 return <div key={i} className={s.history_item}>
                     <div className={`${s.task_body}`}>
                         <div className={`text-white`}>{task.subject}</div>

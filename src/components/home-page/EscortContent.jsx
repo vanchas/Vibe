@@ -15,7 +15,9 @@ export default function EscortContent({
   eyes,
   hair,
   affiliation,
-  filterPosts
+  filterPosts,
+  addToFavorites,
+  sortPosts
 }) {
   const [visibleComponent, setVisibleComponent] = useState("list");
   const [showFilter, setShowFilter] = useState(false);
@@ -51,18 +53,20 @@ export default function EscortContent({
             <span onClick={slideFilter} className={`pl-2 ${s.filter_btn}`}>
               FILTER
 						</span>
-            <select className={`pl-2 form-control border-0 ${s.sorting_btn}`}>
+            <select className={`pl-2 form-control border-0 ${s.sorting_btn}`} onChange={e => sortPosts(e.target.value)}>
               <option value="default" hidden>
                 SORTING
 							</option>
-              <option value="price / from biger to smaller">
+              {/* <option value="price / from biger to smaller">
                 price / from biger to smaller
 							</option>
               <option value="price / from smaller to biger">
                 price / from smaller to biger
-							</option>
-              <option value="date added">date added</option>
-              <option value="number of reviews">number of reviews</option>
+							</option> */}
+              <option value="date/-">date added from new</option>
+              <option value="date/+">date added from old</option>
+              <option value="reviews/-">number of comments from less</option>
+              <option value="reviews/+">number of comments from more</option>
             </select>
           </div>
           <div className={s.filter_btn_group}>
@@ -96,7 +100,8 @@ export default function EscortContent({
           affiliation={affiliation}
           filterPosts={filterPosts}
           eyes={eyes}
-          hair={hair} />
+          hair={hair}
+          slideFilter={slideFilter} />
       </div>
 
       <div className="models-view-block">
@@ -105,12 +110,14 @@ export default function EscortContent({
             posts={posts}
             pagesNumber={pagesNumber}
             selectPostsPage={selectPostsPage}
+            addToFavorites={addToFavorites}
           />
         ) : (
             <EscortGrid
               posts={posts}
               pagesNumber={pagesNumber}
               selectPostsPage={selectPostsPage}
+              addToFavorites={addToFavorites}
             />
           )}
       </div>

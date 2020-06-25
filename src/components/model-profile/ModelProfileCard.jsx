@@ -10,7 +10,7 @@ import ReportFakePhotosModalWindow from "./ReportFakePhotos";
 import ReportTraffickingModalWindow from "./ReportTrafficking";
 import { useRouter } from "next/router";
 
-export default function postProfileCard({ posts, postComments, createPostComment }) {
+export default function postProfileCard({ posts, postComments, createPostComment, reportPost, alert, showAlert, addToFavorites }) {
   const [commentText, setComment] = useState('');
   const [post, setPost] = useState({});
   const router = useRouter();
@@ -28,17 +28,23 @@ export default function postProfileCard({ posts, postComments, createPostComment
       {post.category ? <>
         <div className={s.card}>
           <div className={s.image_block}>
-            <div className={`${s.images_track}`}>
-              <ProfileCarousel photo={[post.photo_horizontal, post.photo_vertical]} />
-            </div>
+            <ProfileCarousel photo={[post.photo_horizontal, post.photo_vertical]} />
             <div>
               <ProfileVideo videoLink={post.video_link} />
             </div>
             <div className={s.report_btn_group}>
-              <ReportFakePhotosModalWindow buttonLabel={'Report Fake Photos'} className={``} />
+              <ReportFakePhotosModalWindow
+                reportPost={reportPost}
+                buttonLabel={'Report Fake Photos'}
+                className={``}
+                postId={post.postId}
+                alert={alert}
+                showAlert={showAlert}
+              />
               <ReportTraffickingModalWindow buttonLabel={'Report Trafficking'} className={``} />
             </div>
-            <div className={`${s.favorite_btn} text-white`}>
+            <div className={`${s.favorite_btn} text-white`}
+              onClick={() => addToFavorites(post.id)}>
               Add to favourites
           </div>
           </div>
@@ -47,7 +53,7 @@ export default function postProfileCard({ posts, postComments, createPostComment
               <h5>{post.first_name} {post.second_name}</h5>
               <span>{post.status}</span>
               <div>
-                <img src={fav} alt="" />
+                <img src={fav} alt="" onClick={() => addToFavorites(post.id)} />
                 <img src={crown} alt="" />
                 <img src={star} alt="" />
                 <img src={plane} alt="" />
@@ -118,9 +124,10 @@ export default function postProfileCard({ posts, postComments, createPostComment
         {postComments && postComments.length ? <>
           <div className={s.add_comment_block}>
             <div className="text-white"
-              onClick={() => {
+              onClick={async () => {
                 if (commentText.length) {
-                  createPostComment(router.query.id, commentText);
+                  await createPostComment(router.query.id, commentText);
+                  setComment('');
                 }
               }}>
               LEAVE A COMMENT</div>
@@ -133,8 +140,8 @@ export default function postProfileCard({ posts, postComments, createPostComment
               {postComments.map((c, i) => (
                 <li key={i} className={s.comment}>
                   <div className={s.comment_title}>
-                    <span>{c.user.id}</span>
-                    <span>{c.created_at}</span>
+                    <span>{c.user.name}</span>
+                    <span>{c.created_at.split('T')[0].split('-').join(' . ')}</span>
                   </div>
                   <p>{c.comment}</p>
                 </li>

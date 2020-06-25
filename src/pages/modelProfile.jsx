@@ -10,7 +10,10 @@ import {
 	selectPostsPage,
 	getPostComments,
 	createPostComment,
-	filterPosts
+	filterPosts,
+	reportPost,
+	showAlert,
+	addToFavorites
 } from "../redux/actions/actions";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
@@ -33,12 +36,16 @@ function ModelProfile(props) {
 				newPosts={props.newPosts}
 				filterPosts={props.filterPosts}
 			/>
-			<ProfilesControl />
+			<ProfilesControl posts={props.posts} />
 			<ModelProfileCard
 				posts={props.posts}
 				postComments={props.postComments}
 				createPostComment={props.createPostComment}
 				getAllPosts={props.getAllPosts}
+				reportPost={props.reportPost}
+				alert={props.alert}
+				showAlert={props.showAlert}
+				addToFavorites={props.addToFavorites}
 			/>
 		</div>
 	);
@@ -52,7 +59,8 @@ const mapStateToProps = (state) => {
 		states: state.app.states,
 		pagesNumber: state.app.pagesNumber,
 		postComments: state.app.postComments,
-		newPosts: state.app.newPosts
+		newPosts: state.app.newPosts,
+		alert: state.app.alert
 	};
 };
 
@@ -62,7 +70,10 @@ const mapDispatchToPops = {
 	selectPostsPage,
 	getPostComments,
 	createPostComment,
-	filterPosts
+	filterPosts,
+	reportPost,
+	showAlert,
+	addToFavorites
 };
 
 export default connect(mapStateToProps, mapDispatchToPops)(ModelProfile);

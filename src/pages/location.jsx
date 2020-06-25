@@ -8,7 +8,7 @@ import LocVertCarousel from "../components/location-page/LocVertCarousel";
 import LocPageFoot from "../components/location-page/LocPageFoot";
 import { connect } from "react-redux";
 import { useRouter } from 'next/router';
-import { getCities, getAllPosts, getNewPosts, filterPosts } from '../redux/actions/actions'
+import { getAllPosts, getNewPosts, filterPosts, addToFavorites, getCities } from '../redux/actions/actions'
 
 function LocationPage(props) {
   const router = useRouter();
@@ -21,17 +21,31 @@ function LocationPage(props) {
 
   return (
     <div>
-      <Location states={props.states} />
+      <Location states={props.states}
+        filterPosts={props.filterPosts}
+        getCities={props.getCities} />
       <Search />
       <Categories
         categories={props.categories}
         newPosts={props.newPosts}
         filterPosts={props.filterPosts}
       />
-      <LocationPageControl cities={props.cities} />
-      <LocHorCarousel posts={props.posts} />
-      <LocVertCarousel posts={props.posts} />
-      <LocPageFoot />
+      <LocationPageControl
+        cities={props.cities}
+        filterPosts={props.filterPosts}
+        availability={props.availability}
+        available_to={props.available_to}
+        ethnicity={props.ethnicity}
+        affiliation={props.affiliation}
+        filterPosts={props.filterPosts}
+        eyes={props.eyes}
+        hair={props.hair}
+      />
+      <LocHorCarousel posts={props.posts}
+        addToFavorites={props.addToFavorites} />
+      <LocVertCarousel posts={props.posts}
+        addToFavorites={props.addToFavorites} />
+      <LocPageFoot filterPosts={props.filterPosts} />
     </div>
   );
 }
@@ -42,12 +56,18 @@ const mapStateToProps = state => {
     categories: state.app.categories,
     cities: state.app.cities,
     posts: state.app.posts,
-    newPosts: state.app.newPosts
+    newPosts: state.app.newPosts,
+    availability: state.app.availability,
+    available_to: state.app.available_to,
+    ethnicity: state.app.ethnicity,
+    eyes: state.app.eyes,
+    hair: state.app.hair,
+    affiliation: state.app.affiliation
   }
 }
 
 const mapDispatchToProps = {
-  getCities, getAllPosts, getNewPosts, filterPosts
+  getCities, getAllPosts, getNewPosts, filterPosts, addToFavorites
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationPage);

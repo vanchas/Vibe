@@ -2,29 +2,34 @@ import React, { useState, useEffect } from "react";
 import s from "./control.module.scss";
 import ModelsFilter from '../models-filter/ModelsFilter'
 import $ from 'jquery';
+import { useRouter } from 'next/router';
 
-export default function LocPageControl({ cities }) {
-  const [currentCity, setCurrentCity] = useState('Fairport');
+export default function LocPageControl({
+  cities,
+  availability,
+  available_to,
+  ethnicity,
+  eyes,
+  hair,
+  affiliation,
+  filterPosts
+}) {
+  const [currentCity, setCurrentCity] = useState('');
   const [showCities, setShowCities] = useState(false);
-  const [sex, setSex] = useState('');
-  const [ageFrom, setAgeFrom] = useState(0);
-  const [ageTo, setAgeTo] = useState(0);
-  const [ethnicity, setEthnicity] = useState('');
-  const [hair, setHair] = useState('');
-  const [eye, setEye] = useState('');
-  const [affiliation, setAffiliation] = useState('');
-  const [availableTo, setAvailableTo] = useState('');
-  const [availability, setAvailability] = useState('');
   const [showFilter, setShowFilter] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    setCurrentCity('Fairport');
+    setCurrentCity(router.query.state);
     $('.loc_cities_list').hide(() => {
       setShowCities(false);
     });
     $('.filter_items_block').hide(() => {
       setShowFilter(true);
     });
+    return () => {
+      setCurrentCity('');
+    }
   }, []);
 
   const slideCitiesList = () => {
@@ -39,26 +44,23 @@ export default function LocPageControl({ cities }) {
     });
   }
 
-  const changeCity = city => {
-    setCurrentCity(city);
+  const changeCity = (name, id) => {
+    setCurrentCity(name);
+    filterPosts({ 'city_id': id })
     slideCitiesList();
-  }
-
-  const applyFilter = e => {
-    e.preventDefault();
   }
 
   return (
     <div className={`${s.loc_page_control} text-white`}>
       <div className={s.loc_page_control_content}>
         <div className={`${s.loc_page_control_header}`}>
-          <h5>ESCORTS IN {currentCity.toUpperCase()}</h5>
+          <h5>ESCORTS {currentCity && currentCity.length ? 'IN ' + currentCity.toUpperCase() : null}</h5>
           <div onClick={slideCitiesList}>CHANGE LOCATION</div>
         </div>
 
         <div className={`loc_cities_list ${s.loc_cities_list}`}>
           {cities && cities.length ? <ul>{cities.map((c, i) => (
-            <li onClick={e => changeCity(c.name)} key={i} className={`${currentCity === c.name ? 'active_btn_blue' : ''} btn city-item`}><span>{c.name}</span></li>
+            <li onClick={e => changeCity(c.name, c.id)} key={i} className={`${currentCity === c.name ? 'active_btn_blue' : ''} btn city-item`}><span>{c.name}</span></li>
           ))}</ul> : <div className="text-center h1 text-info py-5">No cities ...</div>}
         </div>
 
@@ -71,16 +73,14 @@ export default function LocPageControl({ cities }) {
 
       <div className={`filter_items_block ${s.filter_items_block}`}>
         <ModelsFilter
-          setSex={setSex}
-          setAgeTo={setAgeTo}
-          setAgeFrom={setAgeFrom}
-          setEthnicity={setEthnicity}
-          setHair={setHair}
-          setEye={setEye}
-          setAffiliation={setAffiliation}
-          setAvailableTo={setAvailableTo}
-          setAvailability={setAvailability}
-          applyFilter={applyFilter}
+          availability={availability}
+          available_to={available_to}
+          ethnicity={ethnicity}
+          affiliation={affiliation}
+          filterPosts={filterPosts}
+          eyes={eyes}
+          hair={hair}
+          slideFilter={slideFilter}
         />
       </div>
     </div>

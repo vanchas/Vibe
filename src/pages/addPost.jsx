@@ -30,7 +30,6 @@ function AddPost({
 
   return (
     <div>
-      <div className="h3 text-white py-2 text-center">{posts && posts.length ? posts.length : 0} posts</div>
       <AddPostForm
         addProviderPost={addProviderPost}
         affiliation={affiliation}
