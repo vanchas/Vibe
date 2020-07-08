@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import { authenticationService } from '../../_services';
 
-export default function SignUp() {
+export default function SignUp({ setVisibleSignInComponent, setRegisteredEmail, setRegisteredPassword }) {
   const router = useRouter();
   const [formUser, setFormUser] = useState(true);
   const [isAgency, setIsAgency] = useState(false);
@@ -63,10 +63,15 @@ export default function SignUp() {
             )
               .then(
                 user => {
-                  console.log('user:', user);
-                  const { from } =
-                    { from: { pathname: "/" } };
-                  router.push(from);
+                  // const { from } =
+                  //   { from: { pathname: "/" } };
+                  // router.push({
+                  //   pathname: '/login',
+                  // query: { email, password }
+                  // });
+                  // setRegisteredEmail(email);
+                  // setRegisteredPassword(password);
+                  // setVisibleSignInComponent(true);
                 },
                 error => {
                   console.log('error:', error);

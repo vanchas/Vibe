@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import fetch from "isomorphic-unfetch";
 import { handleResponse } from "../_helpers";
-import Router from "next/router";
+import Router from "next/Router";
 
 let currentUserSubject = Cookies.getJSON("currentUser")
   ? Cookies.getJSON("currentUser")
@@ -23,6 +23,7 @@ export const authenticationService = {
 };
 
 async function login(email: string, password: string): Promise<any> {
+  Cookies.remove("currentUser");
   return await fetch(`${target}/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -35,8 +36,18 @@ async function login(email: string, password: string): Promise<any> {
         currentUserSubject = user;
         return user;
       }
+    }).then((user) => {
+      if (user.user.role === 'client') {
+        Router.push('/userCabinet');
+      } else if (user.user.role = 'individual') {
+        Router.push('/modelCabinet');
+      } else if (user.user.role === 'admin') {
+        Router.push('/admin');
+      } else if (user.user.role === 'agency') {
+        Router.push('/modelCabinet');
+      }
     })
-    .then(() => window.location.reload(true))
+    // .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }
 async function registrationClient(
@@ -45,6 +56,7 @@ async function registrationClient(
   email: string,
   password_confirmation: string
 ): Promise<any> {
+  Cookies.remove("currentUser");
   return await fetch(`https://intim-vibe-api.padilo.pro/api/client/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
@@ -56,15 +68,15 @@ async function registrationClient(
     }),
   })
     .then(handleResponse)
-    .then((client) => {
-      Cookies.set("currentUser", JSON.stringify(client));
-      currentUserSubject = client;
-      return client;
-    })
-    .then(() => {
-      login(email, password);
-    })
-    .then(() => Router.push("/userCabinet"))
+    // .then((client) => {
+    //   Cookies.set("currentUser", JSON.stringify(client));
+    //   currentUserSubject = client;
+    //   return client;
+    // })
+    // .then(() => {
+    //   login(email, password);
+    // })
+    // .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }
 async function registrationAdmin(
@@ -73,6 +85,7 @@ async function registrationAdmin(
   email: string,
   password_confirmation: string
 ): Promise<any> {
+  Cookies.remove("currentUser");
   return await fetch(`${target}/admin/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
@@ -84,13 +97,15 @@ async function registrationAdmin(
     }),
   })
     .then(handleResponse)
-    .then((admin) => {
-      Cookies.set("currentUser", JSON.stringify(admin));
-      currentUserSubject = admin;
-      return admin;
-    }).then(() => {
-      login(email, password);
-    })
+    // .then((admin) => {
+    //   Cookies.set("currentUser", JSON.stringify(admin));
+    //   currentUserSubject = admin;
+    //   return admin;
+    // })
+    // .then(() => {
+    //   login(email, password);
+    // })
+    // .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }
 async function registrationProvider(
@@ -100,6 +115,7 @@ async function registrationProvider(
   password_confirmation: string,
   phone: string | number
 ): Promise<any> {
+  Cookies.remove("currentUser");
   return await fetch(`${target}/individual/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
@@ -112,14 +128,15 @@ async function registrationProvider(
     }),
   })
     .then(handleResponse)
-    .then((provider) => {
-      Cookies.set("currentUser", JSON.stringify(provider.user));
-      currentUserSubject = provider;
-      return provider;
-    }).then(() => {
-      login(email, password);
-    })
-    .then(() => Router.push("/modelCabinet"))
+    // .then((provider) => {
+    //   Cookies.set("currentUser", JSON.stringify(provider.user));
+    //   currentUserSubject = provider;
+    //   return provider;
+    // })
+    // .then(() => {
+    //   login(email, password);
+    // })
+    // .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }
 async function registrationAgency(
@@ -130,6 +147,7 @@ async function registrationAgency(
   phone: string | number,
   agency_name: string
 ): Promise<any> {
+  Cookies.remove("currentUser");
   const response = await fetch(`${target}/agency/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
@@ -144,11 +162,12 @@ async function registrationAgency(
   });
   const promise = response.json();
   promise.then(provider => {
-    Cookies.set("currentUser", JSON.stringify(provider));
-    currentUserSubject = provider;
-    return provider;
-  }).then(() => login(email, password))
-    .then(() => Router.push("/modelCabinet"))
+    // Cookies.set("currentUser", JSON.stringify(provider));
+    // currentUserSubject = provider;
+    // return provider;
+  })
+    // .then(() => login(email, password))
+    // .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }
 async function logout(): Promise<any> {
@@ -160,7 +179,7 @@ async function logout(): Promise<any> {
       "Access-Control-Allow-Origin": "*",
     },
   })
-    .then(() => Router.push('/'))
+    .then(() => Router.push('/login'))
     .then(() => window.location.reload(true))
     .catch((err) => console.error("Error:", err));
 }

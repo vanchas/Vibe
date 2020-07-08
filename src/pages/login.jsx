@@ -5,6 +5,8 @@ import LoginControl from '../components/login-page/LoginControl';
 
 export default function login() {
 	const [visibleSignInComponent, setVisibleSignInComponent] = useState(true);
+	// const [registeredEmail, setRegisteredEmail] = useState('');
+	// const [registeredPassword, setRegisteredPassword] = useState('');
 
 	const changeVisibleSignInComponent = () => {
 		setVisibleSignInComponent(!visibleSignInComponent);
@@ -17,7 +19,16 @@ export default function login() {
 				changeVisibleSignInComponent={changeVisibleSignInComponent}
 			/>
 
-			{visibleSignInComponent ? <SignIn /> : <SignUp />}
+			{visibleSignInComponent
+				? <SignIn
+				// registeredEmail={registeredEmail}
+				// registeredPassword={registeredPassword}
+				/>
+				: <SignUp
+				// setRegisteredEmail={setRegisteredEmail}
+				// setRegisteredPassword={setRegisteredPassword}
+				// setVisibleSignInComponent={setVisibleSignInComponent}
+				/>}
 		</div>
 	);
 }
