@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import s from "./profile.module.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
-import Alert from '../test/Alert';
 
 const ReportFakePhotosModalWindow = (props) => {
   const {
@@ -44,7 +43,6 @@ const ReportFakePhotosModalWindow = (props) => {
           </FormGroup>
         </Form>
         <ModalFooter className="bg-dark text-white border-top border-secondary">
-          {props.alert && <Alert text={props.alert} />}
           <Button color="info" onClick={reportHandler}>SEND REPORT</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>

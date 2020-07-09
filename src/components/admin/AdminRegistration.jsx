@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Alert from "../test/Alert";
 import { authenticationService } from '../../_services';
 import { connect } from "react-redux";
 import { showAlert } from "../../redux/actions/actions";
@@ -29,10 +28,6 @@ function AdminRegistration(props) {
 	return (
 		<div className="text-white">
 			<span className="text-center d-block py-3">New admin registration</span>
-
-			<div className="container">
-				{props.alert && <Alert text={props.alert} />}
-			</div>
 
 			<form onSubmit={(e) => submitHandler(e)} className="form-group container">
 				<label className="form-group d-block">

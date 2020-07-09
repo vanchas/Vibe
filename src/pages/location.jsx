@@ -7,16 +7,16 @@ import LocHorCarousel from "../components/location-page/LocHorCarousel";
 import LocVertCarousel from "../components/location-page/LocVertCarousel";
 import LocPageFoot from "../components/location-page/LocPageFoot";
 import { connect } from "react-redux";
-import { useRouter } from 'next/router';
-import { getAllPosts, getNewPosts, filterPosts, addToFavorites, getCities } from '../redux/actions/actions'
+import Router from 'next/router';
+import { getAllPosts, getNewPosts, filterPosts, addToFavorites, getCities, getAppInfo } from '../redux/actions/actions'
 
 function LocationPage(props) {
-  const router = useRouter();
 
   useEffect(() => {
-    props.getCities(router.query.id);
+    props.getCities(Router.query.id);
     props.getAllPosts();
     props.getNewPosts();
+    props.getAppInfo();
   }, []);
 
   return (
@@ -67,7 +67,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  getCities, getAllPosts, getNewPosts, filterPosts, addToFavorites
+    getCities, getAllPosts, getNewPosts, filterPosts, addToFavorites, getAppInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationPage);

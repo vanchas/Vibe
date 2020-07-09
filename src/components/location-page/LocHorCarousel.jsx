@@ -134,37 +134,6 @@ export default function LocHorCarousel({ posts, addToFavorites }) {
             </a></Link>
           </div>
 
-          {posts.length !== 1 ? <div className={`${s.second_slide} ${s.slide}`} style={posts.length === 1 ? { display: 'none' } : {}}>
-            <Link href={{ pathname: "/modelProfile", query: { id: posts[secondCurrentIndex].id } }}><a>
-              <img
-                src={posts[secondCurrentIndex].photo_horizontal}
-                alt={posts[secondCurrentIndex].model_name}
-                className={`model-photo-second ${s.main_photo}`} />
-              <div className={s.loc_slide_info}>
-                <div className={s.loc_slide_info_head}>
-                  <h5 className="text-white">{posts[secondCurrentIndex].model_name} {posts[secondCurrentIndex].second_name}</h5>
-                  <div className={s.slide_network}>{posts[secondCurrentIndex].status}</div>
-                  <div className={s.slide_control}>
-                    <img src={fav} alt="" onClick={(e) => {
-                      e.preventDefault();
-                      addToFavorites(posts[secondCurrentIndex].id);
-                    }} />
-                    <img src={crown} alt="" />
-                    <img src={star} alt="" />
-                    <img src={plane} alt="" />
-                  </div>
-                </div>
-                <div className={s.slide_location}>
-                  <p className="m-0">{posts[secondCurrentIndex].state.name} / {posts[secondCurrentIndex].city.name}</p>
-                </div>
-                <div className={s.slide_verification}>
-                  <span className={s.verification}>{posts[secondCurrentIndex].is_verify ? 'OTHER VIP VERIFIED' : null}</span>
-                  <span className={`text-white ${s.status}`}>SPECIAL STATUS</span>
-                </div>
-              </div>
-            </a></Link>
-          </div> : null}
-
           {posts.length > 1
             ? <span className={s.photo_toggler_forvard}
               onClick={changePhotoForvard}>&gt;</span>

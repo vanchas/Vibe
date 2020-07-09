@@ -51,9 +51,9 @@ const NavComponent = props => {
             {role === 'admin' ? <NavItem>
               <NavLink href="/admin" onClick={() => setActiveLink('admin')} className={activeLink === 'admin' ? s.activeLink : null}>Admin</NavLink>
             </NavItem> : null}
-            <NavItem>
-              <NavLink href="/test" onClick={() => setActiveLink('test')} className={activeLink === 'test' ? s.activeLink : null}>TEST</NavLink>
-            </NavItem>
+            {/*<NavItem>*/}
+            {/*  <NavLink href="/test" onClick={() => setActiveLink('test')} className={activeLink === 'test' ? s.activeLink : null}>TEST</NavLink>*/}
+            {/*</NavItem>*/}
           </Nav>
         </Collapse>
       </Navbar>

@@ -40,35 +40,38 @@ export default function SimpleSlider({newPosts}) {
             }
         ]
     };
+    const [index, setIndex] = useState(0)
 
     return (
         <div style={{
             margin: '0 auto',
             maxWidth: '1260px'
-        }}>
-            {newPosts && newPosts.length
-                ? <Slider
-                    {...settings}
-                    style={{
-                        maxWidth: "1260px",
-                        margin: "0 auto",
-                    }}
-                >
-                    newPosts.map((post, i) => (
-                    <div key={i}>
-                        <div className={s.slide}>
-                            <Link href={{pathname: "/modelProfile", query: {id: post.id}}}>
-                                <a>
-                                    <img src={post.photo_vertical} alt="model" className="w-100"/>
-                                    <div>
-                                        <span>{post.model_name}</span>
-                                    </div>
-                                </a>
-                            </Link>
-                        </div>
+        }} className={s.new_posts_carousel}>
+            {newPosts && newPosts.length ?
+                newPosts.map((post, i) => (
+                    <div key={i} className={s.slide}>
+                        <Link href={{pathname: "/modelProfile", query: {id: post.id}}}><a>
+                            <img src={post.photo_vertical} alt="model" />
+                            <div>{post.model_name}</div>
+                        </a></Link>
                     </div>
-                    ))
-                </Slider>
+                ))
+                // <Slider {...settings}>
+                //     {newPosts.map((post, i) => (
+                //     <div key={i}>
+                //         <div className={s.slide}>
+                //             <Link href={{pathname: "/modelProfile", query: {id: post.id}}}>
+                //                 <a>
+                //                     <img src={post.photo_vertical} alt="model" className="w-100"/>
+                //                     <div>
+                //                         <span>{post.model_name}</span>
+                //                     </div>
+                //                 </a>
+                //             </Link>
+                //         </div>
+                //     </div>
+                //     ))}
+                //  </Slider>
                 : <div className={`text-center text-info py-5`}>No posts...</div>}
         </div>
     );

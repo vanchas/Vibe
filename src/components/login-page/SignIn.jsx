@@ -25,11 +25,13 @@ export default function SignIn({  }) {
           authenticationService.login(email, password)
             .then(
               data => {
-
+                setTimeout(() => {
+                    setSubmitting(false)
+                }, 3000)
               },
               error => {
-                setSubmitting(false);
-                setStatus(error);
+                setSubmitting(false)
+                setStatus(error)
               }
             )
             .catch((err) => console.error("Error:", err));
@@ -55,7 +57,7 @@ export default function SignIn({  }) {
               }
             </div>
             {status &&
-              <div className={'alert alert-danger'}>{status}</div>
+              <div className={'alert alert-danger'}>{JSON.stringify(status)}</div>
             }
           </Form>
         )}

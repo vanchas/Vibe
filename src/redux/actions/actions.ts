@@ -88,8 +88,7 @@ export const getAppInfo = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/info`);
     const promise = response.json();
     promise.then(res => {
-        console.log(res)
-        // return dispatch({ type: GET_APP_INFO, payload: res.data });
+        return dispatch({ type: GET_APP_INFO, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
 export const getCities = (stateId: number | string) => async (dispatch: any) => {

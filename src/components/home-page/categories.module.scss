@@ -76,9 +76,17 @@
 	}
 }
 
+.new_posts_carousel {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1em;
+	width: 100%;
+}
 .slide {
 	padding: 0 0.3em;
 	position: relative;
+	height: 20em;
+	overflow: hidden;
 	&:hover a {
 		color: #00e8ff;
 	}
@@ -86,6 +94,15 @@
 		font-family: 'PT Sans', sans-serif;
 		color: #fff;
 		text-decoration: none;
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		overflow: hidden;
+		img {
+			width: auto;
+			height: 20em;
+		}
 		div {
 			position: absolute;
 			bottom: 0;

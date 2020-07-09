@@ -7,7 +7,6 @@ import withRedux from "next-redux-wrapper";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../redux/store';
 import Head from 'next/head';
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

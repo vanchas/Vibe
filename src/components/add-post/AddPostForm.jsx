@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import s from "./add-post.module.scss";
-import Alert from "../test/Alert";
 
 export default class AddPostFrom extends Component {
 	constructor(props) {
@@ -119,7 +118,6 @@ export default class AddPostFrom extends Component {
 				<div className={s.add_post_block}>
 					<div className={s.add_post_block_title}>ADDING POST</div>
 					<div className={s.add_post_block_info}>
-						{this.props.alert && <Alert text={this.props.alert} />}
 
 						<form
 							encType="multipart/form-data"

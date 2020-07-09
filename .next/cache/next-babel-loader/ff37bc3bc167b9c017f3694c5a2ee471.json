@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nexport default function ProfileVideo({\n  videoLink\n}) {\n  return __jsx(\"div\", null, __jsx(\"iframe\", {\n    width: \"420\",\n    height: \"315\",\n    className: \"w-100\",\n    src: videoLink,\n    allowFullScreen: true\n  }));\n}","map":null,"metadata":{},"sourceType":"module"}

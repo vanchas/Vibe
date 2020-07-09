@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useRouter } from 'next/router'
 import s from "./location.module.scss";
 import Link from "next/link";
-import $ from 'jquery';
 
 export default function Location({ states, getCities }) {
   const [currentLocation, setCurrentLocation] = useState('');
@@ -13,10 +12,7 @@ export default function Location({ states, getCities }) {
     setCurrentLocation(stateId);
     states.forEach(state => {
       if (+state.id === +stateId) {
-        router.push({
-          pathname: `/location`,
-          query: { state: state.name, id: state.id }
-        });
+        router.push(`/location?id=${state.id}`);
       }
     });
   }
@@ -43,7 +39,8 @@ export default function Location({ states, getCities }) {
                 <li key={i}
                   onClick={e => changeLocation(state.id)}
                   className={`btn text-white location_item`}>
-                  <Link href="/location">
+                  <Link href={{pathname: `/location`,
+                    query: { id: state.id }}} >
                     <a className={currentLocation === state ? 'active_btn_blue' : ''}>{state.name}</a>
                   </Link>
                 </li>

@@ -1,7 +1,7 @@
 import Header from '../header/Header';
 import s from './layout.module.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ children }) => (<>
   <div className={s.layout}>
     <div className={s.layout_content}>
       <header>
@@ -12,6 +12,6 @@ const Layout = ({ children }) => (
       </main>
     </div>
   </div>
-);
+</>);
 
 export default Layout;

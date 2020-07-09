@@ -1,4 +1,4 @@
-import { GET_ALL_SUPPORT_TASKS, DELETE_SUPPORT_TASK, CREATE_CATEGORY } from "../actions/types";
+import { GET_ALL_SUPPORT_TASKS, DELETE_SUPPORT_TASK } from "../actions/types";
 
 
 const initialState = {

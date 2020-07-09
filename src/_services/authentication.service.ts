@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import fetch from "isomorphic-unfetch";
 import Router from "next/router";
 import store from "../redux/store";
-import {showSuccess} from "../redux/actions/actions";
+import {showAlert, showSuccess} from "../redux/actions/actions";
 
 let currentUserSubject = Cookies.getJSON("currentUser")
     ? Cookies.getJSON("currentUser")
@@ -39,6 +39,10 @@ async function login(email: string, password: string): Promise<any> {
         }).then(() => Router.push('/'))
             .then(() => window.location.reload())
             .catch((err) => console.error("Error:", err));
+    } else {
+        return promise
+            .then(data => store.dispatch(showAlert(data.message)))
+            .catch((err) => console.error("Error:", err));
     }
 }
 
@@ -65,6 +69,10 @@ async function registrationClient(
             store.dispatch(showSuccess(data.message))
             setTimeout(() => window.location.reload(), 3000)
         }).catch((err: any) => console.error("Error:", err));
+    } else {
+        return promise
+            .then(data => store.dispatch(showAlert(data.message)))
+            .catch((err) => console.error("Error:", err));
     }
 }
 
@@ -91,6 +99,10 @@ async function registrationAdmin(
             store.dispatch(showSuccess(data.message))
             setTimeout(() => window.location.reload(), 3000)
         }).catch((err: any) => console.error("Error:", err));
+    } else {
+        return promise
+            .then(data => store.dispatch(showAlert(data.message)))
+            .catch((err) => console.error("Error:", err));
     }
 }
 
@@ -119,6 +131,10 @@ async function registrationProvider(
             store.dispatch(showSuccess(data.message))
             setTimeout(() => window.location.reload(), 3000)
         }).catch((err: any) => console.error("Error:", err));
+    } else {
+        return promise
+            .then(data => store.dispatch(showAlert(data.message)))
+            .catch((err) => console.error("Error:", err));
     }
 }
 
@@ -149,6 +165,10 @@ async function registrationAgency(
             store.dispatch(showSuccess(data.message))
             setTimeout(() => window.location.reload(), 3000)
         }).catch((err: any) => console.error("Error:", err));
+    } else {
+        return promise
+            .then(data => store.dispatch(showAlert(data.message)))
+            .catch((err) => console.error("Error:", err));
     }
 }
 

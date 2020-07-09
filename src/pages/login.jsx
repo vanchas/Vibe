@@ -4,8 +4,9 @@ import SignUp from "../components/login-page/SignUp";
 import LoginControl from '../components/login-page/LoginControl';
 import {connect} from "react-redux";
 import Success from "../components/helpers/Success";
+import Alert from "../components/helpers/Alert";
 
-function login({success}) {
+function login({success, alert}) {
 	const [visibleSignInComponent, setVisibleSignInComponent] = useState(true);
 
 	const changeVisibleSignInComponent = () => {
@@ -19,6 +20,7 @@ function login({success}) {
 				changeVisibleSignInComponent={changeVisibleSignInComponent}
 			/>
 			{success && <Success />}
+			{alert && <Alert />}
 			{visibleSignInComponent
 				? <SignIn />
 				: <SignUp />}
@@ -27,7 +29,8 @@ function login({success}) {
 }
 
 const mapStateToProps = state => ({
-	success: state.app.success
+	success: state.app.success,
+	alert: state.app.alert
 })
 
 const mapDispatchToProps = {

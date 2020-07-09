@@ -1,6 +1,7 @@
 import { ADD_POST, ProviderPost, UPDATE_POST, REMOVE_POST, GET_ALL_POSTS } from "./types"
 import fetch from 'isomorphic-unfetch'
 import { authenticationService } from "../../_services";
+import {showAlert, showSuccess} from "./actions";
 // import { useRouter } from "next/router"
 
 export function getAllProviderPost(): any {
@@ -48,9 +49,16 @@ export const addProviderPost = (post: any) => async (dispatch: any) => {
     body: formData
   });
   const promise = response.json();
-  promise.then(res => {
-    return dispatch({ type: ADD_POST, payload: post });
-  }).catch(err => console.error('Error:', err))
+  if (response.status === 201) {
+    promise.then(data => {
+      dispatch({ type: ADD_POST, payload: post });
+      dispatch(showSuccess(data.message))
+    }).catch(err => console.error('Error:', err))
+  } else {
+    promise.then(data => {
+      dispatch(showAlert(data.message));
+    }).catch(err => console.error('Error:', err))
+  }
 };
 export function updateProviderPost(post: ProviderPost): any {
   return {
@@ -65,15 +73,4 @@ export function removeProviderPost(id: number | string): any {
   }
 };
 
-// export function showAlert(text: string): any {
-//     return (dispatch: Function) => {
-//         dispatch({
-//             type: SHOW_ALERT,
-//             payload: text
-//         })
-//         setTimeout(() => {
-//             dispatch(hideAlert())
-//         }, 3000)
-//     }
-// }
 
