@@ -1,5 +1,24 @@
-import { SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS, GET_FAVORITES, GET_COMPLAINS, SORT_POSTS } from "../actions/types";
-import moment from 'moment'
+import {
+  SHOW_LOADER,
+  HIDE_LOADER,
+  SHOW_ALERT,
+  HIDE_ALERT,
+  GET_ALL_POSTS,
+  GET_LOCAITONS_INFO,
+  GET_CITIES,
+  CREATE_SUPPORT_TASK,
+  GET_ALL_USER_TASKS,
+  GET_APP_INFO,
+  GET_NEW_POSTS,
+  GET_PAGES_NUMBER,
+  GET_POST_COMMENTS,
+  CREATE_POST_COMMENT,
+  FILTER_POSTS,
+  GET_FAVORITES,
+  GET_COMPLAINS,
+  SORT_POSTS,
+  SHOW_SUCCESS
+} from "../actions/types";
 
 const initialState = {
   postComments: [],
@@ -19,13 +38,17 @@ const initialState = {
   hair: [],
   pagesNumber: 0,
   favorites: [],
-  complains: []
+  complains: [],
+  success: null
 };
 
 export const appReducer = (state: any = initialState, action: any) => {
   switch (action.type) {
     case SHOW_LOADER:
       return { ...state, loading: true }
+
+    case SHOW_SUCCESS:
+      return { ...state, success: action.payload }
 
     case HIDE_LOADER:
       return { ...state, loading: false }

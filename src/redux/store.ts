@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 // import { forbiddenWordsMiddlwware } from './middleware';
 import createSagasMiddleware from 'redux-saga';
 import { rootSaga } from './sagas/sagas';
-import { getAppInfo } from './actions/actions';
 
 const preloadedState = {};
 const saga = createSagasMiddleware();
@@ -18,8 +17,6 @@ const store: any = createStore(
     saga
   )
 );
-
-store.dispatch(getAppInfo());
 
 saga.run(rootSaga);
 

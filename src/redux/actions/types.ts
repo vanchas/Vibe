@@ -23,6 +23,7 @@ export const REPORT_POST = 'REPORT_POST';
 export const GET_FAVORITES = 'GET_FAVORITES';
 export const GET_COMPLAINS = 'GET_GET_COMPLAINS';
 export const SORT_POSTS = 'SORT_POSTS';
+export const SHOW_SUCCESS = 'SHOW_SUCCESS';
 
 // provider
 export const ADD_POST = 'PROVIDER/ADD_POST';

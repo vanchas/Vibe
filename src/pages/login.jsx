@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import SignIn from "../components/login-page/SignIn";
 import SignUp from "../components/login-page/SignUp";
 import LoginControl from '../components/login-page/LoginControl';
+import {connect} from "react-redux";
+import Success from "../components/helpers/Success";
 
-export default function login() {
+function login({success}) {
 	const [visibleSignInComponent, setVisibleSignInComponent] = useState(true);
-	// const [registeredEmail, setRegisteredEmail] = useState('');
-	// const [registeredPassword, setRegisteredPassword] = useState('');
 
 	const changeVisibleSignInComponent = () => {
 		setVisibleSignInComponent(!visibleSignInComponent);
@@ -18,17 +18,19 @@ export default function login() {
 				visibleSignInComponent={visibleSignInComponent}
 				changeVisibleSignInComponent={changeVisibleSignInComponent}
 			/>
-
+			{success && <Success />}
 			{visibleSignInComponent
-				? <SignIn
-				// registeredEmail={registeredEmail}
-				// registeredPassword={registeredPassword}
-				/>
-				: <SignUp
-				// setRegisteredEmail={setRegisteredEmail}
-				// setRegisteredPassword={setRegisteredPassword}
-				// setVisibleSignInComponent={setVisibleSignInComponent}
-				/>}
+				? <SignIn />
+				: <SignUp />}
 		</div>
 	);
 }
+
+const mapStateToProps = state => ({
+	success: state.app.success
+})
+
+const mapDispatchToProps = {
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(login)

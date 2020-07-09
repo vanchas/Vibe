@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import { authenticationService } from '../../_services';
 
-export default function SignIn({ registeredPassword, registeredEmail }) {
+export default function SignIn({  }) {
   const router = useRouter();
 
   return (
@@ -25,26 +25,13 @@ export default function SignIn({ registeredPassword, registeredEmail }) {
           authenticationService.login(email, password)
             .then(
               data => {
-                // console.log('data:', data);
 
-                // if (data.token) {
-                //   if (data.user.role === 'client') {
-                //     router.push('/userCabinet');
-                //   } else if (data.user.role = 'individual') {
-                //     router.push('/modelCabinet');
-                //   } else if (data.user.role === 'admin') {
-                //     router.push('/admin');
-                //   } else if (data.user.role === 'agency') {
-                //     router.push('/modelCabinet');
-                //   }
-                // }
               },
               error => {
                 setSubmitting(false);
                 setStatus(error);
               }
             )
-            // .then(() => window.location.reload(true))
             .catch((err) => console.error("Error:", err));
         }}
         render={({ errors, status, touched, isSubmitting }) => (

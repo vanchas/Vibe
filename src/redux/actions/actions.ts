@@ -1,4 +1,26 @@
-import { TEST_CREATE_POST, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT, TEST_REQUEST_POSTS, GET_ALL_POSTS, GET_LOCAITONS_INFO, GET_CITIES, CREATE_SUPPORT_TASK, GET_ALL_USER_TASKS, GET_APP_INFO, GET_NEW_POSTS, GET_PAGES_NUMBER, GET_POST_COMMENTS, CREATE_POST_COMMENT, FILTER_POSTS, GET_FAVORITES, GET_COMPLAINS, SORT_POSTS } from "./types"
+import {
+    TEST_CREATE_POST,
+    SHOW_LOADER,
+    HIDE_LOADER,
+    SHOW_ALERT,
+    HIDE_ALERT,
+    TEST_REQUEST_POSTS,
+    GET_ALL_POSTS,
+    GET_LOCAITONS_INFO,
+    GET_CITIES,
+    CREATE_SUPPORT_TASK,
+    GET_ALL_USER_TASKS,
+    GET_APP_INFO,
+    GET_NEW_POSTS,
+    GET_PAGES_NUMBER,
+    GET_POST_COMMENTS,
+    CREATE_POST_COMMENT,
+    FILTER_POSTS,
+    GET_FAVORITES,
+    GET_COMPLAINS,
+    SORT_POSTS,
+    SHOW_SUCCESS
+} from "./types"
 import fetch from 'isomorphic-unfetch';
 import { authenticationService } from "../../_services";
 
@@ -66,7 +88,8 @@ export const getAppInfo = () => async (dispatch: Function) => {
     const response = await fetch(`https://intim-vibe-api.padilo.pro/api/info`);
     const promise = response.json();
     promise.then(res => {
-        return dispatch({ type: GET_APP_INFO, payload: res.data });
+        console.log(res)
+        // return dispatch({ type: GET_APP_INFO, payload: res.data });
     }).catch(err => console.error('Error: ', err));
 }
 export const getCities = (stateId: number | string) => async (dispatch: any) => {
@@ -252,4 +275,11 @@ export const getComplains = (userId: number | string) => async (dispatch: Functi
 }
 export const sortPosts = (sortType: string) => async (dispatch: Function) => {
     return dispatch({ type: SORT_POSTS, payload: sortType })
+}
+
+export const showSuccess = (text: string) => async (dispatch: Function) => {
+    dispatch({ type: SHOW_SUCCESS, payload: text })
+    setTimeout(() => {
+        dispatch({ type: SHOW_SUCCESS, payload: null })
+    }, 3000)
 }
